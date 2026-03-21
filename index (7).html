@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VOM — Digital Agency Pune | Websites & Local SEO</title>
+<meta name="description" content="VOM builds high-performance websites and drives local SEO results for businesses in Pune. ₹6,000 to launch. First month free.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── RESET & TOKENS ── */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040a;--navy:#080c1a;--deep:#0d1228;
+  --glass:rgba(255,255,255,0.032);--glass-b:rgba(255,255,255,0.068);
+  --gold:#c9a84c;--gold-lt:#e8c97a;--gold-dk:#a8843a;--gold-glow:rgba(201,168,76,0.14);
+  --cobalt:#2451b7;--text:#e6e4f0;--muted:#7c7f96;--dim:#383b52;--green:#3be09b;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',sans-serif;
+  --ease:cubic-bezier(0.23,1,0.32,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--void);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.65;overflow-x:hidden;cursor:none}
+body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.02;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+
+/* CURSOR */
+#cur{position:fixed;top:0;left:0;z-index:9999;pointer-events:none}
+.c-d{width:7px;height:7px;background:var(--gold-lt);border-radius:50%;position:absolute;transform:translate(-50%,-50%)}
+.c-r{width:32px;height:32px;border:1px solid rgba(201,168,76,.4);border-radius:50%;position:absolute;transform:translate(-50%,-50%);transition:all .2s var(--ease)}
+body.hov .c-r{width:50px;height:50px;border-color:var(--gold);background:rgba(201,168,76,.04)}
+
+/* PRELOADER */
+#pre{position:fixed;inset:0;z-index:9000;background:var(--void);display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .9s var(--ease),transform .9s var(--ease)}
+#pre.done{opacity:0;transform:translateY(-12px);pointer-events:none}
+.pl{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;letter-spacing:.5em;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.5);animation:plIn 1.3s var(--ease) forwards;margin-bottom:2.5rem}
+@keyframes plIn{from{opacity:0;letter-spacing:1em}to{opacity:1;letter-spacing:.5em}}
+.pt{width:180px;height:1px;background:rgba(255,255,255,.07);overflow:hidden}
+.pf{height:100%;width:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:pfFill 2.1s cubic-bezier(.4,0,.2,1) forwards .3s}
+@keyframes pfFill{to{width:100%}}
+.pp{font-family:var(--sans);font-size:.58rem;letter-spacing:.22em;color:var(--muted);margin-top:.9rem}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 5rem;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(4,4,10,.95),rgba(4,4,10,.5) 80%,transparent);transition:padding .4s,background .4s,border .4s;border-bottom:1px solid transparent}
+nav.scrolled{padding:1rem 5rem;background:rgba(4,4,10,.97);backdrop-filter:blur(20px);border-bottom-color:var(--glass-b)}
+.n-logo{font-family:var(--serif);font-size:1.5rem;font-weight:600;letter-spacing:.08em;color:var(--gold-lt);text-decoration:none}
+.n-logo sup{font-size:.45em;vertical-align:super;opacity:.6}
+.n-links{display:flex;gap:2.2rem;list-style:none}
+.n-links a{font-size:.68rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .3s}
+.n-links a:hover{color:var(--gold-lt)}
+.n-cta{font-family:var(--sans);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.65rem 1.6rem;background:var(--gold);color:var(--void);text-decoration:none;border-radius:6px;transition:all .35s var(--ease)}
+.n-cta:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 6px 24px rgba(201,168,76,.3)}
+
+/* HERO */
+#hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:0 5rem}
+.h-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 90% 60% at 65% 40%,rgba(26,58,110,.5) 0%,transparent 70%),radial-gradient(ellipse 55% 50% at 15% 80%,rgba(201,168,76,.07) 0%,transparent 65%),radial-gradient(ellipse 70% 60% at 85% 15%,rgba(36,81,183,.12) 0%,transparent 65%),var(--navy);animation:hBg 16s ease-in-out infinite alternate}
+@keyframes hBg{0%{filter:hue-rotate(0deg) brightness(1)}100%{filter:hue-rotate(6deg) brightness(1.05)}}
+.h-grid{position:absolute;inset:0;z-index:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent)}
+.orb{position:absolute;border-radius:50%;pointer-events:none;z-index:0;animation:oF linear infinite}
+.o1{width:420px;height:420px;top:5%;right:3%;background:radial-gradient(circle,rgba(36,81,183,.15) 0%,transparent 70%);animation-duration:17s}
+.o2{width:260px;height:260px;bottom:15%;left:8%;background:radial-gradient(circle,rgba(201,168,76,.09) 0%,transparent 70%);animation-duration:12s;animation-delay:-5s}
+.o3{width:580px;height:580px;top:-150px;left:25%;background:radial-gradient(circle,rgba(26,58,110,.18) 0%,transparent 60%);animation-duration:22s;animation-delay:-10s}
+@keyframes oF{0%,100%{transform:translateY(0) scale(1)}33%{transform:translateY(-20px) scale(1.03)}66%{transform:translateY(12px) scale(.97)}}
+.streak{position:absolute;z-index:1;pointer-events:none}
+.s1{top:30%;left:-8%;width:52%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.2),transparent);transform:rotate(-6deg);animation:sM 8s ease-in-out infinite}
+.s2{top:68%;right:-8%;width:44%;height:1px;background:linear-gradient(270deg,transparent,rgba(36,81,183,.26),transparent);transform:rotate(4deg);animation:sM 10s ease-in-out infinite reverse}
+@keyframes sM{0%,100%{opacity:.5;transform:translateX(0) rotate(-6deg)}50%{opacity:1;transform:translateX(30px) rotate(-6deg)}}
+
+.hero-c{position:relative;z-index:10;max-width:960px;text-align:center;opacity:0;animation:hIn 1.2s var(--ease) forwards 2.4s}
+@keyframes hIn{from{opacity:0;transform:translateY(32px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
+.h-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;opacity:.8}
+.h-eyebrow::before,.h-eyebrow::after{content:'';display:block;width:26px;height:1px;background:var(--gold);opacity:.45}
+h1{font-family:var(--serif);font-size:clamp(3.2rem,8vw,7.5rem);font-weight:400;line-height:1.02;letter-spacing:-.01em;margin-bottom:1.5rem;color:var(--text)}
+h1 em{font-style:italic;color:var(--gold-lt)}
+.h-sub{font-size:.9rem;color:var(--muted);max-width:500px;margin:0 auto 2.8rem;line-height:1.8;font-weight:300}
+.h-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.6rem;font-family:var(--sans);font-size:.74rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;border-radius:6px;padding:.95rem 2.1rem;transition:all .35s var(--ease);border:1px solid transparent;cursor:pointer}
+.btn-gold{background:var(--gold);color:var(--void);box-shadow:0 0 24px rgba(201,168,76,.2)}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 8px 32px rgba(201,168,76,.35)}
+.btn-outline{background:transparent;color:var(--gold-lt);border-color:rgba(201,168,76,.35)}
+.btn-outline:hover{background:rgba(201,168,76,.07);border-color:var(--gold);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:var(--muted);border-color:var(--glass-b)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.14)}
+.btn svg{transition:transform .3s var(--ease)}
+.btn:hover svg{transform:translateX(3px)}
+
+.scroll-h{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--sans);font-size:.56rem;font-weight:500;letter-spacing:.22em;color:var(--dim);z-index:10;text-transform:uppercase}
+.scroll-l{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:sL 2.2s ease-in-out infinite}
+@keyframes sL{0%{transform:scaleY(0);transform-origin:top;opacity:1}50%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
+
+/* TICKER */
+.ticker-wrap{overflow:hidden;padding:1rem 0;background:rgba(201,168,76,.06);border-top:1px solid rgba(201,168,76,.12);border-bottom:1px solid rgba(201,168,76,.12);position:relative;z-index:10}
+.ticker{display:flex;animation:tick 28s linear infinite;width:max-content}
+.ticker-item{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-lt);padding:0 2.5rem;opacity:.75;white-space:nowrap}
+.ticker-item span{color:var(--gold);margin-right:.4rem;opacity:.6}
+@keyframes tick{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* FEATURES ROW */
+#features{padding:5rem 5rem;max-width:1200px;margin:0 auto}
+.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem}
+.feat-card{background:var(--glass);border:1px solid var(--glass-b);border-radius:12px;padding:2rem 1.6rem;position:relative;overflow:hidden;transition:all .4s var(--ease)}
+.feat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease)}
+.feat-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4);border-color:rgba(255,255,255,.09)}
+.feat-card:hover::after{transform:scaleX(1)}
+.feat-icon{font-size:1.4rem;margin-bottom:1rem;display:block}
+.feat-card h3{font-family:var(--serif);font-size:1.25rem;font-weight:600;margin-bottom:.5rem}
+.feat-card p{font-size:.78rem;color:var(--muted);line-height:1.7}
+
+/* SERVICES BENTO */
+#services{padding:6rem 5rem;max-width:1200px;margin:0 auto}
+.s-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:3rem;flex-wrap:wrap;gap:2rem}
+.s-header-right{max-width:380px}
+.s-header-right p{font-size:.85rem;color:var(--muted);line-height:1.8}
+.bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1.1rem}
+.bc{background:var(--glass);border:1px solid var(--glass-b);border-radius:12px;padding:2rem;position:relative;overflow:hidden;transition:all .45s var(--ease);cursor:default;backdrop-filter:blur(12px)}
+.bc::before{content:'';position:absolute;inset:-1px;border-radius:13px;border:1px solid transparent;background:linear-gradient(135deg,rgba(201,168,76,.25),transparent,rgba(36,81,183,.15)) border-box;-webkit-mask:linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);-webkit-mask-composite:destination-out;mask-composite:exclude;opacity:0;transition:opacity .4s}
+.bc::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,168,76,.05) 0%,transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none}
+.bc:hover{transform:translateY(-4px);border-color:rgba(255,255,255,.09);box-shadow:0 22px 60px rgba(0,0,0,.5),0 0 40px rgba(201,168,76,.05)}
+.bc:hover::before{opacity:1}
+.bc:hover::after{opacity:1}
+.b1{grid-column:span 5;grid-row:span 2;min-height:300px}
+.b2{grid-column:span 4;min-height:145px}
+.b3{grid-column:span 3;min-height:145px}
+.b4{grid-column:span 4;min-height:145px}
+.b5{grid-column:span 3;min-height:145px}
+.b6{grid-column:span 7;min-height:185px}
+.bc-icon{width:40px;height:40px;border-radius:9px;background:var(--gold-glow);border:1px solid rgba(201,168,76,.18);display:flex;align-items:center;justify-content:center;font-size:1.1rem;margin-bottom:1.2rem;transition:transform .4s var(--ease)}
+.bc:hover .bc-icon{transform:scale(1.1) rotate(-4deg)}
+.bc-tag{font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:.4rem}
+.bc-title{font-family:var(--serif);font-size:1.4rem;font-weight:600;color:var(--text);margin-bottom:.65rem;line-height:1.2}
+.bc-desc{font-size:.78rem;color:var(--muted);line-height:1.68}
+.bc-glow{position:absolute;border-radius:50%;pointer-events:none}
+.b1 .bc-glow{width:200px;height:200px;right:-60px;bottom:-60px;background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 70%)}
+.b6 .bc-glow{width:260px;height:260px;right:0;top:-100px;background:radial-gradient(circle,rgba(36,81,183,.13) 0%,transparent 70%)}
+.ai-chip{position:absolute;right:1.3rem;bottom:1.3rem;background:rgba(8,12,26,.93);border:1px solid rgba(201,168,76,.13);border-radius:10px;padding:.65rem .9rem;width:168px;backdrop-filter:blur(10px);z-index:5;animation:aiF 4s ease-in-out infinite}
+@keyframes aiF{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.ai-dot{width:5px;height:5px;background:var(--green);border-radius:50%;display:inline-block;margin-right:.4rem;animation:blk 2s ease-in-out infinite}
+@keyframes blk{0%,100%{opacity:1}50%{opacity:.25}}
+.ai-lbl{font-size:.54rem;letter-spacing:.1em;color:var(--muted);margin-bottom:.4rem}
+.ai-msg{font-size:.67rem;color:var(--text);line-height:1.4}
+.ai-dots{display:flex;gap:3px;margin-top:.35rem}
+.ai-dots span{width:4px;height:4px;background:var(--gold);border-radius:50%;animation:typ 1.2s ease-in-out infinite}
+.ai-dots span:nth-child(2){animation-delay:.2s}
+.ai-dots span:nth-child(3){animation-delay:.4s}
+@keyframes typ{0%,80%,100%{transform:translateY(0);opacity:.4}40%{transform:translateY(-5px);opacity:1}}
+
+/* HOW IT WORKS */
+#how{padding:7rem 5rem;max-width:1200px;margin:0 auto;background:linear-gradient(to bottom,var(--void),var(--navy) 50%,var(--void))}
+.how-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.steps{display:flex;flex-direction:column}
+.step{display:flex;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid var(--glass-b);transition:all .3s}
+.step:last-child{border-bottom:none}
+.step:hover .step-n{color:var(--gold)}
+.step:hover h3{color:var(--gold-lt)}
+.step-n{font-family:var(--sans);font-size:.6rem;font-weight:600;letter-spacing:.15em;color:var(--dim);padding-top:.28rem;transition:color .3s;min-width:1.8rem}
+.step h3{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:.45rem;transition:color .3s}
+.step p{font-size:.78rem;color:var(--muted);line-height:1.72}
+.how-visual{position:relative;min-height:480px;display:flex;align-items:center;justify-content:center}
+.flow-d{position:relative;width:290px;height:410px}
+.flow-n{position:absolute;background:var(--glass);border:1px solid var(--glass-b);border-radius:10px;padding:.95rem 1.4rem;backdrop-filter:blur(10px);width:165px}
+.fn-lbl{font-size:.58rem;letter-spacing:.08em;color:var(--muted);margin-bottom:.2rem;font-weight:500}
+.fn-ttl{font-family:var(--serif);font-size:1rem;font-weight:600;color:var(--text)}
+.fn1{top:0;left:50%;transform:translateX(-50%);border-color:rgba(201,168,76,.2);animation:ff1 6s ease-in-out infinite}
+.fn2{top:30%;left:0;animation:ff2 7.5s ease-in-out infinite;animation-delay:-2s}
+.fn3{top:30%;right:0;animation:ff2 8s ease-in-out infinite;animation-delay:-4s}
+.fn4{bottom:0;left:50%;transform:translateX(-50%);border-color:rgba(36,81,183,.4);animation:ff1 6.5s ease-in-out infinite;animation-delay:-3s}
+@keyframes ff1{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(-9px)}}
+@keyframes ff2{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.flow-svg{position:absolute;inset:0;z-index:-1;width:100%;height:100%}
+
+/* STATS */
+#stats{padding:4rem 5rem}
+.stats-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--glass-b);border:1px solid var(--glass-b);border-radius:12px;overflow:hidden}
+.stat{background:var(--void);padding:2.5rem 2rem;text-align:center}
+.stat-num{font-family:var(--serif);font-size:3rem;font-weight:300;color:var(--gold-lt);line-height:1;margin-bottom:.4rem}
+.stat-num span{font-size:1.5rem;vertical-align:super;font-size:1.8rem}
+.stat-lbl{font-size:.72rem;font-weight:500;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+
+/* PRICING TEASER */
+#pricing-teaser{padding:7rem 5rem;max-width:1200px;margin:0 auto}
+.pt-grid{display:grid;grid-template-columns:1fr 1.2fr 1fr;gap:1.2rem;margin-top:3rem}
+.plan{background:var(--glass);border:1px solid var(--glass-b);border-radius:14px;padding:2.4rem 2rem;position:relative;overflow:hidden;transition:all .4s var(--ease)}
+.plan::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease)}
+.plan:hover{transform:translateY(-5px);box-shadow:0 24px 60px rgba(0,0,0,.45);border-color:rgba(255,255,255,.09)}
+.plan:hover::after{transform:scaleX(1)}
+.plan.featured{border-color:rgba(201,168,76,.3);background:rgba(201,168,76,.03)}
+.plan.featured::before{content:'Most Popular';position:absolute;top:1rem;right:1rem;font-family:var(--sans);font-size:.54rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--void);background:var(--gold);padding:.3rem .7rem;border-radius:4px}
+.plan-label{font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.65;margin-bottom:.5rem}
+.plan-name{font-family:var(--serif);font-size:1.6rem;font-weight:600;margin-bottom:.3rem}
+.plan-sub{font-size:.74rem;color:var(--muted);margin-bottom:1.5rem}
+.plan-price{font-family:var(--serif);font-size:2.8rem;font-weight:300;color:var(--text);line-height:1;margin-bottom:.3rem}
+.plan-price small{font-size:1rem;font-weight:400;color:var(--muted)}
+.plan-period{font-size:.7rem;color:var(--muted);margin-bottom:1.8rem}
+.plan-feats{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+.plan-feats li{font-size:.78rem;color:var(--muted);display:flex;align-items:flex-start;gap:.65rem}
+.plan-feats li::before{content:'✓';color:var(--gold);flex-shrink:0;font-weight:600}
+
+/* CLIENTS / WHO WE HELP */
+#clients{padding:6rem 5rem;max-width:1200px;margin:0 auto}
+.clients-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.4rem;margin-top:3rem}
+.client-card{background:var(--glass);border:1px solid var(--glass-b);border-radius:12px;padding:2.2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:all .4s var(--ease);position:relative;overflow:hidden}
+.client-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .5s var(--ease)}
+.client-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4);border-color:rgba(255,255,255,.09)}
+.client-card:hover::after{transform:scaleX(1)}
+.cl-icon{font-size:2rem;flex-shrink:0;margin-top:.1rem}
+.cl-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;margin-bottom:.4rem}
+.cl-desc{font-size:.78rem;color:var(--muted);line-height:1.7}
+.cl-tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.9rem}
+.tag{font-family:var(--sans);font-size:.54rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .65rem;border:1px solid rgba(201,168,76,.2);border-radius:4px;color:var(--gold);opacity:.8}
+
+/* TESTIMONIALS */
+#testimonials{padding:6rem 5rem;background:linear-gradient(to bottom,var(--void),var(--navy) 50%,var(--void))}
+.t-inner{max-width:1200px;margin:0 auto}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.t-card{background:var(--glass);border:1px solid var(--glass-b);border-radius:12px;padding:2.2rem;transition:all .4s var(--ease);position:relative}
+.t-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4);border-color:rgba(255,255,255,.09)}
+.t-stars{color:var(--gold);font-size:.9rem;letter-spacing:.1em;margin-bottom:1.2rem}
+.t-quote{font-family:var(--serif);font-size:1.05rem;font-weight:400;line-height:1.6;color:var(--text);margin-bottom:1.4rem;font-style:italic}
+.t-author{font-size:.72rem;font-weight:600;letter-spacing:.06em;color:var(--gold-lt);margin-bottom:.2rem}
+.t-role{font-size:.68rem;color:var(--muted)}
+.t-open{font-family:var(--serif);font-size:3.5rem;font-weight:300;color:var(--gold);opacity:.25;line-height:1;position:absolute;top:1.2rem;right:1.5rem}
+
+/* CONTACT */
+#contact{padding:7rem 5rem;max-width:1200px;margin:0 auto}
+.contact-wrap{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-left .section-eyebrow{display:flex;align-items:center;gap:.8rem;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.9rem}
+.contact-left .section-eyebrow::before{content:'';display:block;width:24px;height:1px;background:var(--gold);opacity:.5}
+.contact-left h2{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3.5rem);font-weight:400;line-height:1.1;margin-bottom:1rem}
+.contact-left h2 em{font-style:italic;color:var(--gold-lt)}
+.contact-left p{font-size:.85rem;color:var(--muted);line-height:1.82;margin-bottom:2rem}
+.contact-meta{display:flex;flex-direction:column;gap:.9rem}
+.c-meta-item{display:flex;align-items:center;gap:.75rem;font-size:.78rem;color:var(--muted)}
+.c-meta-item span.lbl{color:var(--gold-lt);font-weight:500}
+.contact-right{background:var(--glass);border:1px solid var(--glass-b);border-radius:14px;padding:2.5rem;backdrop-filter:blur(12px)}
+.contact-right h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:.5rem}
+.contact-right h3 em{font-style:italic;color:var(--gold-lt)}
+.contact-right p{font-size:.78rem;color:var(--muted);margin-bottom:2rem;line-height:1.7}
+.wa-btn{display:flex;align-items:center;gap:.9rem;padding:1.1rem 1.8rem;background:linear-gradient(135deg,#25d366,#1da851);border-radius:10px;text-decoration:none;color:white;font-weight:600;font-size:.82rem;letter-spacing:.06em;transition:all .35s var(--ease);box-shadow:0 4px 20px rgba(37,211,102,.25)}
+.wa-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,211,102,.4)}
+.wa-icon{width:22px;height:22px;fill:white;flex-shrink:0}
+.wa-sub{font-size:.66rem;font-weight:400;opacity:.8;display:block;margin-top:.15rem}
+.divider{display:flex;align-items:center;gap:1rem;margin:1.5rem 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--glass-b)}
+.divider span{font-size:.6rem;font-weight:600;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+.contact-why{margin-top:1.8rem;display:flex;flex-direction:column;gap:.65rem}
+.cw-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.76rem;color:var(--muted)}
+.cw-item::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.08rem}
+
+/* CTA STRIP */
+#cta-strip{position:relative;padding:7rem 5rem;text-align:center;overflow:hidden;border-top:1px solid var(--glass-b);border-bottom:1px solid var(--glass-b);background:linear-gradient(135deg,rgba(26,58,110,.3) 0%,var(--void) 50%,rgba(201,168,76,.05) 100%)}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(201,168,76,.07) 0%,transparent 70%);pointer-events:none}
+#cta-strip h2{font-family:var(--serif);font-size:clamp(2.5rem,5.5vw,5.5rem);font-weight:400;line-height:1.08;max-width:700px;margin:0 auto 1rem}
+#cta-strip h2 em{font-style:italic;color:var(--gold-lt)}
+#cta-strip p{font-size:.88rem;color:var(--muted);max-width:400px;margin:0 auto 2.8rem;line-height:1.8}
+.cta-note{margin-top:1.8rem;font-family:var(--sans);font-size:.6rem;font-weight:500;letter-spacing:.2em;color:var(--dim);text-transform:uppercase}
+
+/* FOOTER */
+footer{border-top:1px solid var(--glass-b);padding:3.5rem 5rem;position:relative;z-index:10}
+.foot-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:3rem}
+.f-brand .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.1em;color:var(--gold-lt)}
+.f-brand .logo sup{font-size:.45em;vertical-align:super;opacity:.6}
+.f-brand p{font-size:.74rem;color:var(--muted);margin-top:.6rem;line-height:1.7;max-width:200px}
+.f-brand .badge{display:inline-block;margin-top:1rem;font-family:var(--sans);font-size:.56rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.3rem .8rem;border:1px solid rgba(201,168,76,.25);color:var(--gold);border-radius:4px}
+.f-col h4{font-family:var(--sans);font-size:.58rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.65;margin-bottom:1.1rem}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.f-col a{font-size:.75rem;color:var(--muted);text-decoration:none;transition:color .3s}
+.f-col a:hover{color:var(--gold-lt)}
+.f-bottom{max-width:1200px;margin:2rem auto 0;padding-top:1.5rem;border-top:1px solid var(--glass-b);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.f-bottom p{font-size:.65rem;color:var(--dim);letter-spacing:.06em}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:2rem;right:2rem;z-index:400;width:52px;height:52px;border-radius:50%;background:#25d366;box-shadow:0 4px 18px rgba(37,211,102,.4);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .35s var(--ease);animation:waPop .5s var(--ease) 3s both}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 8px 28px rgba(37,211,102,.5)}
+@keyframes waPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.wa-float svg{width:26px;height:26px;fill:white}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.reveal.up{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+.d4{transition-delay:.32s}.d5{transition-delay:.40s}.d6{transition-delay:.48s}
+
+/* section-eyebrow helper */
+.ey{display:flex;align-items:center;gap:.8rem;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);opacity:.7;margin-bottom:.9rem}
+.ey::before{content:'';display:block;width:24px;height:1px;background:var(--gold);opacity:.5}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav,#features,#services,#how,#stats,#pricing-teaser,#clients,#testimonials,#contact,#cta-strip,footer{padding-left:2.5rem;padding-right:2.5rem}
+  nav.scrolled{padding-left:2.5rem;padding-right:2.5rem}
+  .features-grid{grid-template-columns:repeat(2,1fr)}
+  .b1{grid-column:span 12;min-height:220px}.b2,.b3{grid-column:span 6}.b4,.b5{grid-column:span 6}.b6{grid-column:span 12}
+  .how-wrap{grid-template-columns:1fr;gap:3rem}.how-visual{display:none}
+  .t-grid{grid-template-columns:1fr 1fr}
+  .contact-wrap{grid-template-columns:1fr;gap:3rem}
+  .foot-inner{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .pt-grid{grid-template-columns:1fr}
+  .clients-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  nav{padding:1.2rem 1.5rem}nav.scrolled{padding:1rem 1.5rem}
+  .n-links{display:none}
+  #hero{padding:0 1.5rem}
+  #features,#services,#how,#stats,#pricing-teaser,#clients,#testimonials,#contact,#cta-strip,footer{padding-left:1.5rem;padding-right:1.5rem}
+  .features-grid{grid-template-columns:1fr}
+  .b2,.b3,.b4,.b5{grid-column:span 12}.s-header{flex-direction:column}
+  .t-grid{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr 1fr}
+  .f-bottom{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div id="cur"><div class="c-d"></div><div class="c-r"></div></div>
+
+<!-- PRELOADER -->
+<div id="pre">
+  <div class="pl">VOM</div>
+  <div class="pt"><div class="pf"></div></div>
+  <div class="pp" id="pp">0%</div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="n-logo">VOM<sup>®</sup></a>
+  <ul class="n-links">
+    <li><a href="#services" class="nav-scroll">Services</a></li>
+    <li><a href="#how" class="nav-scroll">Process</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#contact" class="nav-scroll">Contact</a></li>
+  </ul>
+  <a href="#contact" class="n-cta nav-scroll">Start a Project</a>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="h-bg"></div>
+  <div class="h-grid"></div>
+  <div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div>
+  <div class="streak s1"></div><div class="streak s2"></div>
+  <div class="hero-c">
+    <div class="h-eyebrow">Pune's Digital Agency · Est. 2026</div>
+    <h1>Your Business,<br><em>On Page One.</em></h1>
+    <p class="h-sub">VOM builds high-performance websites and drives real local SEO results for Pune businesses — so customers find <em style="font-style:italic;color:var(--gold-lt)">you</em> first.</p>
+    <div class="h-btns">
+      <a href="#contact" class="btn btn-gold nav-scroll">
+        Start a Project
+        <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="about.html" class="btn btn-outline">Know More About Us</a>
+      <a href="pricing.html" class="btn btn-ghost">See Pricing</a>
+    </div>
+  </div>
+  <div class="scroll-h"><div class="scroll-l"></div><span>Scroll</span></div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker" id="ticker">
+    <div class="ticker-item"><span>◆</span>Website Design</div>
+    <div class="ticker-item"><span>◆</span>Local SEO Pune</div>
+    <div class="ticker-item"><span>◆</span>Google Rankings</div>
+    <div class="ticker-item"><span>◆</span>Online Presence</div>
+    <div class="ticker-item"><span>◆</span>AI Receptionist</div>
+    <div class="ticker-item"><span>◆</span>Domain & Hosting</div>
+    <div class="ticker-item"><span>◆</span>Business Growth</div>
+    <div class="ticker-item"><span>◆</span>Digital Marketing</div>
+    <div class="ticker-item"><span>◆</span>Website Design</div>
+    <div class="ticker-item"><span>◆</span>Local SEO Pune</div>
+    <div class="ticker-item"><span>◆</span>Google Rankings</div>
+    <div class="ticker-item"><span>◆</span>Online Presence</div>
+    <div class="ticker-item"><span>◆</span>AI Receptionist</div>
+    <div class="ticker-item"><span>◆</span>Domain & Hosting</div>
+    <div class="ticker-item"><span>◆</span>Business Growth</div>
+    <div class="ticker-item"><span>◆</span>Digital Marketing</div>
+  </div>
+</div>
+
+<!-- FEATURES ROW -->
+<section id="features">
+  <div class="features-grid">
+    <div class="feat-card reveal">
+      <span class="feat-icon">⚡</span>
+      <h3>Fast & Automated</h3>
+      <p>Smart process automation lets our focused team deliver agency-grade output — without the bloated costs or timelines.</p>
+    </div>
+    <div class="feat-card reveal d1">
+      <span class="feat-icon">📍</span>
+      <h3>Built for Pune</h3>
+      <p>We know your market. Local SEO strategies tuned to rank in Pune city searches, neighbourhood-level, and nearby areas.</p>
+    </div>
+    <div class="feat-card reveal d2">
+      <span class="feat-icon">📈</span>
+      <h3>Results, Not Jargon</h3>
+      <p>We track real metrics — Google rankings, traffic, enquiries — and report in plain language. Monthly. Every time.</p>
+    </div>
+    <div class="feat-card reveal d3">
+      <span class="feat-icon">💰</span>
+      <h3>Honest Pricing</h3>
+      <p>Flat ₹6,000 to launch. Maintenance from ₹1,000/month. First month on us. No hidden fees, no surprise invoices.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES BENTO -->
+<section id="services">
+  <div class="s-header reveal">
+    <div>
+      <div class="ey">02 — Services</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:400;line-height:1.1">Everything your business<br>needs to be <em style="font-style:italic;color:var(--gold-lt)">found online.</em></h2>
+    </div>
+    <div class="s-header-right">
+      <p>One system. Zero technical friction. We take your business from physical to fully digital — properly, completely, and permanently.</p>
+    </div>
+  </div>
+  <div class="bento">
+    <div class="bc b1 reveal">
+      <div class="bc-icon">⬡</div>
+      <div class="bc-tag">Core Service</div>
+      <div class="bc-title">Website Design & Development</div>
+      <div class="bc-desc">A custom website built around your business — fast-loading, mobile-first, and engineered to convert visitors into paying customers. No templates. SEO-ready from day one.</div>
+      <div class="bc-glow"></div>
+    </div>
+    <div class="bc b2 reveal d1">
+      <div class="bc-icon">🔍</div>
+      <div class="bc-tag">Growth</div>
+      <div class="bc-title">Local SEO & Google Ranking</div>
+      <div class="bc-desc">Get to the top of Google when customers in Pune search for what you offer. Maps, keywords, local authority — done right.</div>
+    </div>
+    <div class="bc b3 reveal d2">
+      <div class="bc-icon">◈</div>
+      <div class="bc-tag">Infrastructure</div>
+      <div class="bc-title">Domain & Hosting</div>
+      <div class="bc-desc">Secured, configured, always-on. Guided end-to-end so you own everything.</div>
+    </div>
+    <div class="bc b4 reveal d1" style="position:relative">
+      <div class="bc-icon">◎</div>
+      <div class="bc-tag">Intelligent</div>
+      <div class="bc-title">AI Receptionist</div>
+      <div class="bc-desc">24/7 smart customer service — answers queries, captures leads, routes conversations automatically.</div>
+      <div class="ai-chip">
+        <div class="ai-lbl"><span class="ai-dot"></span>AI Active</div>
+        <div class="ai-msg">"Your booking is confirmed for tomorrow."</div>
+        <div class="ai-dots"><span></span><span></span><span></span></div>
+      </div>
+    </div>
+    <div class="bc b5 reveal d2">
+      <div class="bc-icon">∞</div>
+      <div class="bc-tag">Long-Term</div>
+      <div class="bc-title">Managed Forever</div>
+      <div class="bc-desc">We don't disappear at launch. Updates, monitoring, SEO — your permanent digital team.</div>
+    </div>
+    <div class="bc b6 reveal" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1.5rem">
+      <div>
+        <div class="bc-tag">The Promise</div>
+        <div class="bc-title" style="font-size:1.8rem">One partner.<br>Every layer.</div>
+        <div class="bc-desc" style="max-width:320px;margin-top:.5rem">From registration to daily management — we own the entire digital infrastructure of your business.</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:.75rem;min-width:200px">
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.76rem;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Zero technical overhead</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.76rem;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> No hidden vendors</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.76rem;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> You own everything</div>
+        <div style="display:flex;align-items:center;gap:.7rem;font-size:.76rem;color:var(--muted)"><span style="color:var(--gold);font-weight:700">✓</span> Direct WhatsApp access</div>
+      </div>
+      <div class="bc-glow"></div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how" style="padding:7rem 5rem;max-width:1200px;margin:0 auto">
+  <div class="how-wrap">
+    <div>
+      <div class="ey reveal">03 — Process</div>
+      <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:1rem">Live online in<br><em style="font-style:italic;color:var(--gold-lt)">4 simple steps.</em></h2>
+      <p class="reveal" style="font-size:.85rem;color:var(--muted);max-width:380px;line-height:1.82;margin-bottom:2.5rem">No jargon. No chasing. You focus on running your business — we handle getting it online and keeping it there.</p>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-n">01</div>
+          <div>
+            <h3>Discovery Call</h3>
+            <p>A free 30-minute call where we learn about your business, your customers, and your goals. No forms. No pressure. Just clarity.</p>
+          </div>
+        </div>
+        <div class="step reveal d1">
+          <div class="step-n">02</div>
+          <div>
+            <h3>We Build It</h3>
+            <p>Custom website, SEO setup, domain, hosting, AI receptionist — all configured, connected, and tested. Ready in days, not months.</p>
+          </div>
+        </div>
+        <div class="step reveal d2">
+          <div class="step-n">03</div>
+          <div>
+            <h3>You Review & Approve</h3>
+            <p>We present the finished product, gather your feedback, and refine until you love it. We get it right — together.</p>
+          </div>
+        </div>
+        <div class="step reveal d3">
+          <div class="step-n">04</div>
+          <div>
+            <h3>Go Live & Grow</h3>
+            <p>We deploy your site, set up Google Business, and activate your free first month. From day one, your business is online and climbing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="how-visual">
+      <svg class="flow-svg" viewBox="0 0 290 410" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M145 65 L60 140" stroke="rgba(201,168,76,0.18)" stroke-width="1" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="2s" repeatCount="indefinite"/></path>
+        <path d="M145 65 L230 140" stroke="rgba(36,81,183,0.22)" stroke-width="1" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="2.6s" repeatCount="indefinite"/></path>
+        <path d="M60 188 L145 340" stroke="rgba(201,168,76,0.12)" stroke-width="1" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="3.2s" repeatCount="indefinite"/></path>
+        <path d="M230 188 L145 340" stroke="rgba(36,81,183,0.17)" stroke-width="1" stroke-dasharray="4 5"><animate attributeName="stroke-dashoffset" values="0;-18" dur="2.4s" repeatCount="indefinite"/></path>
+        <circle cx="145" cy="45" r="4" fill="rgba(201,168,76,0.6)"><animate attributeName="r" values="4;6;4" dur="2s" repeatCount="indefinite"/></circle>
+        <circle cx="58" cy="163" r="3" fill="rgba(201,168,76,0.38)"/>
+        <circle cx="232" cy="163" r="3" fill="rgba(36,81,183,0.45)"/>
+        <circle cx="145" cy="355" r="5" fill="rgba(36,81,183,0.55)"><animate attributeName="r" values="5;7;5" dur="2.5s" repeatCount="indefinite"/></circle>
+      </svg>
+      <div class="flow-d">
+        <div class="flow-n fn1"><div class="fn-lbl">Step 01</div><div class="fn-ttl">Understand</div></div>
+        <div class="flow-n fn2"><div class="fn-lbl">Step 02</div><div class="fn-ttl">Build</div></div>
+        <div class="flow-n fn3"><div class="fn-lbl">Step 03</div><div class="fn-ttl">Approve</div></div>
+        <div class="flow-n fn4"><div class="fn-lbl">Step 04</div><div class="fn-ttl">Growth →</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-inner">
+    <div class="stat reveal">
+      <div class="stat-num"><span id="s1">0</span><span style="font-size:1.8rem">days</span></div>
+      <div class="stat-lbl">Average Launch Time</div>
+    </div>
+    <div class="stat reveal d1">
+      <div class="stat-num">₹<span id="s2">0</span>k</div>
+      <div class="stat-lbl">Flat Launch Price</div>
+    </div>
+    <div class="stat reveal d2">
+      <div class="stat-num"><span id="s3">0</span>%</div>
+      <div class="stat-lbl">Mobile-Optimised</div>
+    </div>
+    <div class="stat reveal d3">
+      <div class="stat-num"><span id="s4">1</span> month</div>
+      <div class="stat-lbl">Free Trial — Every Client</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TEASER -->
+<section id="pricing-teaser">
+  <div class="ey reveal">05 — Pricing</div>
+  <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:.8rem">One flat fee to <em style="font-style:italic;color:var(--gold-lt)">launch.</em><br>Flexible after.</h2>
+  <p class="reveal" style="font-size:.85rem;color:var(--muted);max-width:500px;line-height:1.8;margin-bottom:.5rem">₹6,000 gets your business fully online. Then choose a maintenance plan that grows with you — first month always free.</p>
+  <a href="pricing.html" class="btn btn-outline reveal" style="margin-bottom:2.5rem">
+    View Full Pricing
+    <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
+  <div class="pt-grid">
+    <div class="plan reveal">
+      <div class="plan-label">Starter</div>
+      <div class="plan-name">Local</div>
+      <div class="plan-sub">Shops, cafés & restaurants</div>
+      <div class="plan-price">₹1,000<small>/mo</small></div>
+      <div class="plan-period">after ₹6,000 setup · cancel anytime</div>
+      <ul class="plan-feats">
+        <li>Hosting & uptime monitoring</li>
+        <li>2 content updates/month</li>
+        <li>Google Business management</li>
+        <li>Monthly performance summary</li>
+        <li>WhatsApp support</li>
+      </ul>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20I'm%20interested%20in%20the%20Local%20plan." class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+    </div>
+    <div class="plan featured reveal d1">
+      <div class="plan-label">Growth</div>
+      <div class="plan-name">Growth</div>
+      <div class="plan-sub">Startups, SMBs & professionals</div>
+      <div class="plan-price">₹2,500<small>/mo</small></div>
+      <div class="plan-period">after ₹6,000 setup · cancel anytime</div>
+      <ul class="plan-feats">
+        <li>Everything in Local</li>
+        <li>Active local SEO campaigns</li>
+        <li>6 content updates/month</li>
+        <li>Keyword ranking reports</li>
+        <li>Priority WhatsApp support</li>
+      </ul>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20I'm%20interested%20in%20the%20Growth%20plan." class="btn btn-gold" style="width:100%;justify-content:center">Get Started</a>
+    </div>
+    <div class="plan reveal d2">
+      <div class="plan-label">Enterprise</div>
+      <div class="plan-name">Scale</div>
+      <div class="plan-sub">E-commerce & established brands</div>
+      <div class="plan-price">₹5,000<small>/mo</small></div>
+      <div class="plan-period">after ₹6,000 setup · cancel anytime</div>
+      <ul class="plan-feats">
+        <li>Everything in Growth</li>
+        <li>Social media management</li>
+        <li>Unlimited content updates</li>
+        <li>Monthly strategy call</li>
+        <li>Full Google Ads management</li>
+      </ul>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20I'm%20interested%20in%20the%20Scale%20plan." class="btn btn-outline" style="width:100%;justify-content:center">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHO WE HELP -->
+<section id="clients">
+  <div class="ey reveal">06 — Who We Help</div>
+  <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:.8rem">Built for businesses<br>that are <em style="font-style:italic;color:var(--gold-lt)">ready to grow.</em></h2>
+  <div class="clients-grid">
+    <div class="client-card reveal">
+      <div class="cl-icon">🍽️</div>
+      <div>
+        <div class="cl-name">Local Shops & Restaurants</div>
+        <div class="cl-desc">You've got a great place — but people can't find you online. We build your website, set up your Google Business profile, and make sure you appear when someone searches "near me" in Pune.</div>
+        <div class="cl-tags"><span class="tag">Google Maps</span><span class="tag">Menu Pages</span><span class="tag">Local SEO</span></div>
+      </div>
+    </div>
+    <div class="client-card reveal d1">
+      <div class="cl-icon">🚀</div>
+      <div>
+        <div class="cl-name">Startups & New Businesses</div>
+        <div class="cl-desc">You're building something from scratch and every rupee counts. We give you a professional web presence that punches above its weight — attracting customers and credibility from day one.</div>
+        <div class="cl-tags"><span class="tag">Launch-Ready</span><span class="tag">Lead Gen</span><span class="tag">Brand Setup</span></div>
+      </div>
+    </div>
+    <div class="client-card reveal">
+      <div class="cl-icon">👨‍⚕️</div>
+      <div>
+        <div class="cl-name">Professionals & Consultants</div>
+        <div class="cl-desc">Doctors, lawyers, CAs, and freelancers who want clients to find and trust them online. A clean, credible website with local SEO means more appointments and less cold outreach.</div>
+        <div class="cl-tags"><span class="tag">Appointment Pages</span><span class="tag">Trust Building</span><span class="tag">SEO</span></div>
+      </div>
+    </div>
+    <div class="client-card reveal d1">
+      <div class="cl-icon">📦</div>
+      <div>
+        <div class="cl-name">Small E-Commerce & Product Brands</div>
+        <div class="cl-desc">Ready to sell online? We set up fast, conversion-focused product stores and connect you to the right audiences — so your products reach buyers across Pune and beyond.</div>
+        <div class="cl-tags"><span class="tag">Online Store</span><span class="tag">Product Pages</span><span class="tag">Payments</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="t-inner">
+    <div class="ey reveal">07 — Early Clients</div>
+    <h2 class="reveal" style="font-family:var(--serif);font-size:clamp(2.4rem,4.5vw,4rem);font-weight:400;line-height:1.1;margin-bottom:.5rem">Real businesses,<br><em style="font-style:italic;color:var(--gold-lt)">real results.</em></h2>
+    <div class="t-grid" style="margin-top:3rem">
+      <div class="t-card reveal">
+        <div class="t-open">"</div>
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote">Before VOM, we had zero online presence. Within 3 weeks of our website going live we started getting calls from people who found us on Google. Worth every rupee.</div>
+        <div class="t-author">Rajesh Kulkarni</div>
+        <div class="t-role">Owner, Kulkarni's Tiffin Centre — Pune</div>
+      </div>
+      <div class="t-card reveal d1">
+        <div class="t-open">"</div>
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote">I was sceptical because they're a new agency, but Viresh and Om are incredibly professional. Our site looks like it cost 10x what we paid. Google ranking improved within weeks.</div>
+        <div class="t-author">Sneha Deshpande</div>
+        <div class="t-role">Founder, Bloom Skincare Studio — Kothrud</div>
+      </div>
+      <div class="t-card reveal d2">
+        <div class="t-open">"</div>
+        <div class="t-stars">★★★★★</div>
+        <div class="t-quote">The free first month is not just a gimmick — they actually delivered results in that time. Clear communication, fast delivery. We renewed immediately and haven't looked back.</div>
+        <div class="t-author">Aditya Sharma</div>
+        <div class="t-role">Co-founder, GridTech Solutions — Hinjewadi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left">
+      <div class="section-eyebrow reveal">08 — Let's Talk</div>
+      <h2 class="reveal">Ready to get found<br><em>online?</em></h2>
+      <p class="reveal">Drop us a message on WhatsApp. Viresh or Om will get back to you personally — usually within the hour. No salesperson, no runaround. Just two people who want to help your business grow.</p>
+      <div class="contact-meta reveal">
+        <div class="c-meta-item">📍 <span class="lbl">Based in</span> Pune, Maharashtra</div>
+        <div class="c-meta-item">🕐 <span class="lbl">Hours</span> Mon – Sat, 9am – 8pm</div>
+        <div class="c-meta-item">📧 <span class="lbl">Email</span> hello@vomagencies.in</div>
+      </div>
+    </div>
+    <div class="contact-right reveal">
+      <h3>Message Viresh & Om <em>directly</em></h3>
+      <p>One message is all it takes to get started. We'll discuss your business, suggest a plan, and answer every question — at zero cost.</p>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20I'd%20like%20to%20get%20my%20business%20online.%20Can%20we%20talk%3F" class="wa-btn" target="_blank" rel="noopener">
+        <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        <div>
+          Chat on WhatsApp
+          <span class="wa-sub">Viresh & Om · Usually reply within 60 min</span>
+        </div>
+      </a>
+      <div class="divider"><span>What you get</span></div>
+      <div class="contact-why">
+        <div class="cw-item">Your website live within 7 days of sign-off</div>
+        <div class="cw-item">Direct WhatsApp access to Viresh & Om</div>
+        <div class="cw-item">Full month of free maintenance — no conditions</div>
+        <div class="cw-item">Google Business Profile setup included</div>
+        <div class="cw-item">Local SEO built into every website we make</div>
+        <div class="cw-item">You own everything — code, domain, content</div>
+        <div class="cw-item">Flat ₹6,000 setup, no surprise invoices</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA STRIP -->
+<section id="cta-strip">
+  <div class="cta-glow"></div>
+  <div class="ey reveal" style="justify-content:center">Taking new clients in Pune now</div>
+  <h2 class="reveal">Take Your Business<br><em>Online.</em></h2>
+  <p class="reveal">Join Pune's most motivated businesses going digital — properly, permanently, profitably.</p>
+  <div class="reveal" style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+    <a href="https://wa.me/8007090910?text=Hi%20VOM!%20I'd%20like%20to%20start." class="btn btn-gold">
+      Start a Project
+      <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+    <a href="about.html" class="btn btn-outline">Know More About Us</a>
+  </div>
+  <div class="cta-note reveal">No commitment required — just a conversation.</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="f-brand">
+      <div class="logo">VOM<sup>®</sup></div>
+      <p>Pune's digital infrastructure agency. We build websites, drive local SEO, and manage your entire online presence.</p>
+      <div class="badge">Est. 2026 · Pune, MH</div>
+    </div>
+    <div class="f-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#services">Website Design</a></li>
+        <li><a href="#services">Local SEO</a></li>
+        <li><a href="#services">AI Receptionist</a></li>
+        <li><a href="#services">Domain & Hosting</a></li>
+        <li><a href="#services">Long-Term Management</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="about.html">About VOM</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="f-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="https://wa.me/8007090910">WhatsApp Us</a></li>
+        <li><a href="mailto:hello@vomagencies.in">hello@vomagencies.in</a></li>
+        <li><a href="#">Pune, Maharashtra</a></li>
+        <li><a href="#">Mon–Sat, 9am–8pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <p>© 2026 VOM Digital Agency. All rights reserved.</p>
+    <p>Built by VOM · Pune, India</p>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<a href="https://wa.me/8007090910?text=Hi%20VOM!" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// PRELOADER
+const pp=document.getElementById('pp');const pre=document.getElementById('pre');
+let p=0;const t=setInterval(()=>{p=Math.min(p+Math.random()*10+1,100);pp.textContent=Math.floor(p)+'%';if(p>=100){clearInterval(t);pp.textContent='100%';setTimeout(()=>{pre.classList.add('done');setTimeout(()=>pre.style.display='none',950)},350);}},75);
+
+// CURSOR
+const cd=document.querySelector('.c-d'),cr=document.querySelector('.c-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
+(function anim(){rx+=(mx-rx)*.13;ry+=(my-ry)*.13;cr.style.left=rx+'px';cr.style.top=ry+'px';requestAnimationFrame(anim);})();
+document.querySelectorAll('a,button,.bc,.feat-card,.plan,.client-card,.t-card,.step').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('hov'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('hov'));
+});
+
+// NAV SCROLL STATE
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+
+// SMOOTH NAV SCROLL
+document.querySelectorAll('.nav-scroll').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const href=a.getAttribute('href');
+    if(href.startsWith('#')){e.preventDefault();const el=document.querySelector(href);if(el)el.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// BENTO MOUSE GLOW
+document.querySelectorAll('.bc').forEach(c=>{
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%');});
+});
+
+// MAGNETIC BUTTONS
+document.querySelectorAll('.btn,.n-cta,.nav-btn').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();const dx=(e.clientX-r.left-r.width/2)*.2;const dy=(e.clientY-r.top-r.height/2)*.2;b.style.transform=`translate(${dx}px,${dy}px)`;});
+  b.addEventListener('mouseleave',()=>{b.style.transform='';});
+});
+
+// REVEAL
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('up');});},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+
+// PARALLAX
+window.addEventListener('scroll',()=>{
+  const sy=window.scrollY;
+  document.querySelectorAll('.orb').forEach((o,i)=>{o.style.transform=`translateY(${sy*[.07,.11,.05][i]}px)`;});
+});
+
+// COUNT-UP STATS
+function countUp(id,target,dur,suffix=''){
+  const el=document.getElementById(id);if(!el)return;
+  let start=null;
+  function step(ts){if(!start)start=ts;const prog=Math.min((ts-start)/dur,1);el.textContent=Math.floor(prog*target)+(prog===1?suffix:'');if(prog<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+const sObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){countUp('s1',7,1200);countUp('s2',6,1000);countUp('s3',100,1500);sObs.disconnect();}});},{threshold:.5});
+const sEl=document.getElementById('stats');if(sEl)sObs.observe(sEl);
+</script>
+</body>
+</html>
