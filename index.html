@@ -30,14 +30,18 @@ body::before{content:'';position:fixed;inset:0;z-index:1;pointer-events:none;opa
 body.hov .c-r{width:50px;height:50px;border-color:var(--gold);background:rgba(201,168,76,.04)}
 
 /* PRELOADER */
-#pre{position:fixed;inset:0;z-index:9000;background:var(--void);display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity .9s var(--ease),transform .9s var(--ease)}
-#pre.done{opacity:0;transform:translateY(-12px);pointer-events:none}
-.pl{font-family:var(--serif);font-size:clamp(2rem,5vw,3.5rem);font-weight:300;letter-spacing:.5em;color:transparent;-webkit-text-stroke:1px rgba(201,168,76,.5);animation:plIn 1.3s var(--ease) forwards;margin-bottom:2.5rem}
-@keyframes plIn{from{opacity:0;letter-spacing:1em}to{opacity:1;letter-spacing:.5em}}
-.pt{width:180px;height:1px;background:rgba(255,255,255,.07);overflow:hidden}
-.pf{height:100%;width:0;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:pfFill 2.1s cubic-bezier(.4,0,.2,1) forwards .3s}
+#pre{position:fixed;inset:0;z-index:9000;background:var(--void);display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 1s cubic-bezier(0.4,0,0.2,1),transform 1s cubic-bezier(0.4,0,0.2,1)}
+#pre.done{opacity:0;transform:scale(1.04);pointer-events:none}
+/* Canvas sits behind text */
+#pre-canvas{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.55;pointer-events:none;z-index:0}
+/* Text layer on top */
+.pre-text{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;pointer-events:none}
+.pl{font-family:var(--serif);font-size:clamp(2.2rem,5.5vw,4rem);font-weight:600;letter-spacing:.45em;color:var(--gold-lt);text-shadow:0 0 40px rgba(201,168,76,.55),0 0 80px rgba(201,168,76,.2);animation:plIn 1s cubic-bezier(0.23,1,0.32,1) forwards;margin-bottom:2.2rem;-webkit-text-stroke:.5px rgba(232,201,122,.6)}
+@keyframes plIn{from{opacity:0;letter-spacing:.8em;filter:blur(8px)}to{opacity:1;letter-spacing:.45em;filter:blur(0)}}
+.pt{width:200px;height:1px;background:rgba(255,255,255,.07);overflow:hidden;border-radius:1px}
+.pf{height:100%;width:0;background:linear-gradient(90deg,transparent,var(--gold-lt),var(--gold),var(--gold-lt),transparent);animation:pfFill 2.2s cubic-bezier(.4,0,.2,1) forwards .4s;box-shadow:0 0 8px rgba(201,168,76,.5)}
 @keyframes pfFill{to{width:100%}}
-.pp{font-family:var(--sans);font-size:.58rem;letter-spacing:.22em;color:var(--muted);margin-top:.9rem}
+.pp{font-family:var(--sans);font-size:.58rem;letter-spacing:.26em;color:var(--muted);margin-top:.9rem;font-weight:500}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:1.5rem 5rem;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(4,4,10,.95),rgba(4,4,10,.5) 80%,transparent);transition:padding .4s,background .4s,border .4s;border-bottom:1px solid transparent}
@@ -65,7 +69,7 @@ nav.scrolled{padding:1rem 5rem;background:rgba(4,4,10,.97);backdrop-filter:blur(
 .s2{top:68%;right:-8%;width:44%;height:1px;background:linear-gradient(270deg,transparent,rgba(36,81,183,.26),transparent);transform:rotate(4deg);animation:sM 10s ease-in-out infinite reverse}
 @keyframes sM{0%,100%{opacity:.5;transform:translateX(0) rotate(-6deg)}50%{opacity:1;transform:translateX(30px) rotate(-6deg)}}
 
-.hero-c{position:relative;z-index:10;max-width:960px;text-align:center;opacity:0;animation:hIn 1.2s var(--ease) forwards 2.4s}
+.hero-c{position:relative;z-index:10;max-width:960px;text-align:center;opacity:0;animation:hIn 1.2s var(--ease) forwards 2.8s}
 @keyframes hIn{from{opacity:0;transform:translateY(32px);filter:blur(4px)}to{opacity:1;transform:translateY(0);filter:blur(0)}}
 .h-eyebrow{display:inline-flex;align-items:center;gap:.8rem;font-family:var(--sans);font-size:.62rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.8rem;opacity:.8}
 .h-eyebrow::before,.h-eyebrow::after{content:'';display:block;width:26px;height:1px;background:var(--gold);opacity:.45}
@@ -319,9 +323,12 @@ footer{border-top:1px solid var(--glass-b);padding:3.5rem 5rem;position:relative
 
 <!-- PRELOADER -->
 <div id="pre">
-  <div class="pl">VOM</div>
-  <div class="pt"><div class="pf"></div></div>
-  <div class="pp" id="pp">0%</div>
+  <canvas id="pre-canvas" width="460" height="460"></canvas>
+  <div class="pre-text">
+    <div class="pl">VOM</div>
+    <div class="pt"><div class="pf"></div></div>
+    <div class="pp" id="pp">0%</div>
+  </div>
 </div>
 
 <!-- NAV -->
@@ -785,9 +792,540 @@ footer{border-top:1px solid var(--glass-b);padding:3.5rem 5rem;position:relative
 </a>
 
 <script>
-// PRELOADER
-const pp=document.getElementById('pp');const pre=document.getElementById('pre');
-let p=0;const t=setInterval(()=>{p=Math.min(p+Math.random()*10+1,100);pp.textContent=Math.floor(p)+'%';if(p>=100){clearInterval(t);pp.textContent='100%';setTimeout(()=>{pre.classList.add('done');setTimeout(()=>pre.style.display='none',950)},350);}},75);
+// ── PRELOADER CANVAS ANIMATION ──────────────────────────────────────────────
+(function(){
+  const canvas = document.getElementById('pre-canvas');
+  const ctx    = canvas.getContext('2d');
+  const W = 460, H = 460, CX = W/2, CY = H/2;
+
+  // Colour palette
+  const GOLD     = '#c9a84c';
+  const GOLD_LT  = '#e8c97a';
+  const GOLD_DIM = 'rgba(201,168,76,0.45)';
+  const GOLD_F   = (a) => `rgba(201,168,76,${a})`;
+
+  // ── TIMING ──────────────────────────────────────────────────────────────
+  // 0 → 900ms   : phone fades in, slow elegant rotation + bob
+  // 900 → 1300ms : fast spin burst, water droplet swirl, morph to laptop
+  // 1300 → 1700ms: laptop rests, gentle bob, droplets drift away
+  // 1700 → 2400ms: laptop drawn into vortex — black-hole dissolve
+  // 2400 → 2600ms: vortex fades, preloader exits
+  const T0 = 0,    T1 = 900, T2 = 1300, T3 = 1700, T4 = 2400, T5 = 2600;
+
+  let startTime = null, rafId;
+
+  // ── MATH HELPERS ─────────────────────────────────────────────────────────
+  const clamp  = (v,a,b) => Math.max(a,Math.min(b,v));
+  const lerp   = (a,b,t) => a + (b-a)*t;
+  const eo3    = t => 1-(1-t)**3;           // ease-out cubic
+  const eo5    = t => 1-(1-t)**5;           // ease-out quint (snappier settle)
+  const ei3    = t => t*t*t;                // ease-in cubic
+  const eio    = t => t<.5 ? 4*t*t*t : 1-(-2*t+2)**3/2; // ease-in-out
+  const norm   = (v,a,b) => clamp((v-a)/(b-a),0,1);    // remap to 0-1
+
+  // ── PROGRESS COUNTER ─────────────────────────────────────────────────────
+  const ppEl = document.getElementById('pp');
+  let fakeP = 0;
+  const pTimer = setInterval(()=>{
+    fakeP = Math.min(fakeP + Math.random()*8 + 2, 100);
+    ppEl.textContent = Math.floor(fakeP)+'%';
+    if(fakeP >= 100){ clearInterval(pTimer); ppEl.textContent = '100%'; }
+  }, 65);
+
+  // ── GLOW UTILITY ─────────────────────────────────────────────────────────
+  function setGlow(blur, colour){
+    ctx.shadowBlur  = blur;
+    ctx.shadowColor = colour || GOLD;
+  }
+  function clearGlow(){ ctx.shadowBlur = 0; }
+
+  // ── DRAW PHONE ───────────────────────────────────────────────────────────
+  // sx = cos(yaw) — gives the perspective-squish for 3-D Y-axis rotation.
+  // Everything is drawn in local space (origin = device centre).
+  function drawPhone(sx, alpha){
+    if(alpha <= 0.01) return;
+    const px = Math.abs(sx);   // always positive for mirrored projection
+    const PW = 52, PH = 104, R = 13;
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+
+    // ── Outer body ──────────────────────────────────────────────────────
+    setGlow(18, GOLD);
+    ctx.beginPath();
+    ctx.moveTo(-PW*px + R*px, -PH);
+    ctx.lineTo( PW*px - R*px, -PH);
+    ctx.quadraticCurveTo( PW*px, -PH,  PW*px, -PH+R);
+    ctx.lineTo( PW*px,  PH-R);
+    ctx.quadraticCurveTo( PW*px,  PH,  PW*px-R*px,  PH);
+    ctx.lineTo(-PW*px + R*px,  PH);
+    ctx.quadraticCurveTo(-PW*px,  PH, -PW*px,  PH-R);
+    ctx.lineTo(-PW*px, -PH+R);
+    ctx.quadraticCurveTo(-PW*px, -PH, -PW*px+R*px, -PH);
+    ctx.closePath();
+    ctx.strokeStyle = GOLD_LT;
+    ctx.lineWidth   = 1.6;
+    ctx.stroke();
+    clearGlow();
+
+    // ── Inner screen rect ───────────────────────────────────────────────
+    const iw = (PW-10)*px, ih = PH-28;
+    ctx.beginPath();
+    ctx.moveTo(-iw, -PH+22);
+    ctx.lineTo( iw, -PH+22);
+    ctx.lineTo( iw,  PH-20);
+    ctx.lineTo(-iw,  PH-20);
+    ctx.closePath();
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 0.85;
+    ctx.stroke();
+
+    // ── Pill notch (dynamic island style) ───────────────────────────────
+    const nw = 22*px;
+    ctx.beginPath();
+    ctx.ellipse(0, -PH+11, nw, 5, 0, 0, Math.PI*2);
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 0.85;
+    ctx.stroke();
+
+    // ── Side buttons ────────────────────────────────────────────────────
+    const bx = PW*px;
+    ctx.beginPath();
+    // Power button right
+    ctx.moveTo(bx, -18); ctx.lineTo(bx, 6);
+    // Volume up left
+    ctx.moveTo(-bx, -26); ctx.lineTo(-bx, -10);
+    // Volume down left
+    ctx.moveTo(-bx, -4); ctx.lineTo(-bx, 12);
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 1.8;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ── DRAW LAPTOP ──────────────────────────────────────────────────────────
+  function drawLaptop(sx, alpha){
+    if(alpha <= 0.01) return;
+    const px = Math.abs(sx);
+    // Screen: trapezoidal — slightly wider at top, perspective in x
+    const SW = 130, SH = 88, BY = 16, BH = 14;
+
+    ctx.save();
+    ctx.globalAlpha = alpha;
+
+    // ── Screen panel ─────────────────────────────────────────────────────
+    setGlow(18, GOLD);
+    ctx.beginPath();
+    ctx.moveTo(-SW*px, -SH - BY);   // top-left
+    ctx.lineTo( SW*px, -SH - BY);   // top-right
+    ctx.lineTo( (SW+6)*px, -BY);    // bottom-right (slight splay)
+    ctx.lineTo(-(SW+6)*px, -BY);    // bottom-left
+    ctx.closePath();
+    ctx.strokeStyle = GOLD_LT;
+    ctx.lineWidth   = 1.6;
+    ctx.stroke();
+    clearGlow();
+
+    // ── Screen bezel (inner) ─────────────────────────────────────────────
+    const bz = 9;
+    ctx.beginPath();
+    ctx.moveTo((-SW+bz)*px,  -SH-BY+bz);
+    ctx.lineTo(( SW-bz)*px,  -SH-BY+bz);
+    ctx.lineTo(( SW+4)*px,   -BY-bz);
+    ctx.lineTo((-SW-4)*px,   -BY-bz);
+    ctx.closePath();
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 0.8;
+    ctx.stroke();
+
+    // ── Camera dot ───────────────────────────────────────────────────────
+    ctx.beginPath();
+    ctx.arc(0, -SH - BY + 5, 2.2, 0, Math.PI*2);
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 0.8;
+    ctx.stroke();
+
+    // ── Base / keyboard deck ─────────────────────────────────────────────
+    const BW = (SW+10);
+    setGlow(10, GOLD);
+    ctx.beginPath();
+    ctx.moveTo(-(SW+6)*px, -BY);
+    ctx.lineTo( (SW+6)*px, -BY);
+    ctx.lineTo(  BW*px,    -BY+BH);
+    ctx.lineTo( -BW*px,    -BY+BH);
+    ctx.closePath();
+    ctx.strokeStyle = GOLD_LT;
+    ctx.lineWidth   = 1.5;
+    ctx.stroke();
+    clearGlow();
+
+    // ── Hinge line ───────────────────────────────────────────────────────
+    ctx.beginPath();
+    ctx.moveTo(-(SW+5)*px, -BY+1); ctx.lineTo((SW+5)*px, -BY+1);
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 0.7;
+    ctx.stroke();
+
+    // ── Trackpad ─────────────────────────────────────────────────────────
+    const tpW = 38*px, tpH = 10;
+    ctx.beginPath();
+    ctx.moveTo(-tpW, -BY+4);
+    ctx.lineTo( tpW, -BY+4);
+    ctx.lineTo( tpW, -BY+4+tpH);
+    ctx.lineTo(-tpW, -BY+4+tpH);
+    ctx.closePath();
+    ctx.strokeStyle = GOLD_DIM;
+    ctx.lineWidth   = 0.75;
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ── DROPLET ──────────────────────────────────────────────────────────────
+  // Draws one Bézier water droplet at local origin, pointed upward.
+  function dropletPath(){
+    ctx.beginPath();
+    ctx.moveTo(0, -11);
+    ctx.bezierCurveTo( 9, -5,  9, 6, 0,  9);
+    ctx.bezierCurveTo(-9,  6, -9,-5, 0,-11);
+    ctx.closePath();
+  }
+
+  // Draw N droplets orbiting at `radius`, each with a slow individual bob.
+  // Each droplet lives on a slightly tilted orbital plane — creates the
+  // illusion of depth without any real 3-D math.
+  function drawDroplets(elapsed, alpha, count, radius, speed, size){
+    if(alpha <= 0.01) return;
+    for(let i = 0; i < count; i++){
+      const phase  = (i / count) * Math.PI * 2;
+      const angle  = phase + elapsed * speed;
+
+      // Layered ellipse: each droplet has its own tilt ratio (0.35–0.55)
+      const tilt   = 0.35 + (i / count) * 0.22;
+      // Compound vertical bob: primary + slower secondary per droplet
+      const bob1   = Math.sin(elapsed * 0.00175 + phase * 1.2) * 9;
+      const bob2   = Math.sin(elapsed * 0.00092 + phase * 0.7 + 1.4) * 4;
+      const ox     = Math.cos(angle) * radius;
+      const oy     = Math.sin(angle) * radius * tilt + bob1 + bob2;
+
+      // Depth cue: droplets "behind" the orbit are slightly smaller, fainter
+      const depth  = 0.72 + 0.28 * Math.sin(angle);
+      const iAlpha = alpha * depth * (0.55 + 0.45 * Math.sin(elapsed * 0.0019 + phase));
+
+      ctx.save();
+      ctx.globalAlpha = iAlpha;
+      ctx.translate(ox, oy);
+      // Tip always faces radially outward from centre
+      ctx.rotate(angle + Math.PI * 0.5);
+      ctx.scale(size * depth, size * depth);
+
+      setGlow(6, GOLD);
+      dropletPath();
+      ctx.strokeStyle = GOLD_LT;
+      ctx.lineWidth   = 1.1 / (size * depth);
+      ctx.stroke();
+
+      // Inner highlight — offset slightly for a glassy feel
+      ctx.beginPath();
+      ctx.arc(-2.2, -2.8, 1.3, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(232,201,122,0.50)';
+      ctx.fill();
+      clearGlow();
+
+      ctx.restore();
+    }
+  }
+
+  // ── RADIAL SPIN AURA (motion blur bloom) ─────────────────────────────────
+  // A central radial bloom + 6 fine arc-trails swept around the device.
+  // intensity: 0→1, peaks at spin midpoint.
+  function drawSpinAura(intensity){
+    if(intensity < 0.01) return;
+
+    // Soft radial bloom from centre
+    const bloomR = 80 * intensity;
+    const bloom  = ctx.createRadialGradient(0, 0, 0, 0, 0, bloomR);
+    bloom.addColorStop(0,   GOLD_F(intensity * 0.22));
+    bloom.addColorStop(0.5, GOLD_F(intensity * 0.07));
+    bloom.addColorStop(1,   'transparent');
+    ctx.beginPath(); ctx.arc(0, 0, bloomR, 0, Math.PI * 2);
+    ctx.fillStyle = bloom; ctx.fill();
+
+    // Fine arc-trails — six evenly spaced, each a different sweep length
+    const trails = 6;
+    for(let i = 0; i < trails; i++){
+      const a0   = (i / trails) * Math.PI * 2;
+      const span = intensity * Math.PI * (0.28 + (i % 2) * 0.14);
+      const r    = 55 + (i / trails) * 70;
+      ctx.beginPath();
+      ctx.arc(0, 0, r, a0, a0 + span);
+      ctx.strokeStyle = GOLD_F(intensity * 0.10 * (1 - i / trails));
+      ctx.lineWidth   = intensity * (3 - i * 0.35);
+      ctx.stroke();
+    }
+  }
+
+  // ── VORTEX DISSOLVE ───────────────────────────────────────────────────────
+  // Fine golden spiral arms tighten inward. Each arm is drawn as a smooth
+  // polyline sampled along a logarithmic spiral. Arms rotate at different
+  // speeds to give a living, breathing quality even as they collapse.
+  function drawVortex(elapsed, progress, alpha){
+    if(alpha <= 0.01) return;
+    const arms    = 4;
+    const maxR    = lerp(155, 2, progress);
+    const baseRot = elapsed * 0.0032;
+
+    for(let arm = 0; arm < arms; arm++){
+      const armOffset = (arm / arms) * Math.PI * 2;
+      // Each arm rotates slightly differently — avoids lockstep look
+      const rot = baseRot * (1 + arm * 0.06) + armOffset;
+      const steps = 42;
+
+      ctx.beginPath();
+      for(let s = 0; s <= steps; s++){
+        const t2 = s / steps;
+        // Logarithmic spiral: r decreases non-linearly — tight at centre
+        const r  = maxR * Math.pow(1 - t2, 1.55);
+        const a  = rot + t2 * Math.PI * 4.2;
+        // Slight vertical squash for depth illusion
+        const x  = Math.cos(a) * r;
+        const y  = Math.sin(a) * r * 0.68;
+        s === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+
+      // Outer arms fainter, inner arm brightest
+      const brightness = 1 - (arm / (arms - 1)) * 0.5;
+      ctx.strokeStyle = GOLD_F(alpha * brightness * 0.48);
+      ctx.lineWidth   = lerp(1.6, 0.55, arm / arms);
+      ctx.stroke();
+    }
+
+    // Singularity: a soft, pulsing gold disc that grows then implodes
+    const singR = maxR * 0.22 * (1 + 0.18 * Math.sin(elapsed * 0.008));
+    if(singR > 0.5){
+      const g = ctx.createRadialGradient(0, 0, 0, 0, 0, singR);
+      g.addColorStop(0,   GOLD_F(alpha * 0.75));
+      g.addColorStop(0.45, GOLD_F(alpha * 0.28));
+      g.addColorStop(1,   'transparent');
+      ctx.beginPath();
+      ctx.arc(0, 0, singR, 0, Math.PI * 2);
+      ctx.fillStyle  = g;
+      ctx.globalAlpha = alpha;
+      ctx.fill();
+      ctx.globalAlpha = 1;
+    }
+  }
+
+  // ── ELEGANT BOB ───────────────────────────────────────────────────────────
+  // A compound Lissajous-inspired float: primary vertical sine + a slower
+  // lateral drift + a subtle roll — gives a buoyant, alive quality.
+  function bob(e, amp){
+    const primary   = Math.sin(e * 0.00185) * amp;          // main up-down
+    const secondary = Math.sin(e * 0.00095 + 1.1) * amp * 0.28; // lazy drift
+    return { y: primary + secondary };
+  }
+
+  // ── AMBIENT GOLD HALO ─────────────────────────────────────────────────────
+  // Soft radial bloom behind everything — breathes slowly.
+  function drawHalo(e, alpha){
+    const pulse = 0.65 + 0.35 * Math.sin(e * 0.0014);
+    const r = 95 * pulse;
+    const g = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
+    g.addColorStop(0,   GOLD_F(alpha * 0.12 * pulse));
+    g.addColorStop(0.5, GOLD_F(alpha * 0.05));
+    g.addColorStop(1,   'transparent');
+    ctx.beginPath();
+    ctx.arc(0, 0, r, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+  }
+
+  // ── MAIN RENDER LOOP ──────────────────────────────────────────────────────
+  function render(ts){
+    if(!startTime) startTime = ts;
+    const e = ts - startTime;   // elapsed ms from first frame
+
+    ctx.clearRect(0, 0, W, H);
+    ctx.save();
+    ctx.translate(CX, CY);
+
+    // ════════════════════════════════════════════════════════════════════════
+    // PHASE 0  (0 → 900ms)
+    // Phone breathes into existence with a soft upward drift.
+    // Rotates from a slight angle (~16°) to near-frontal over the full phase.
+    // Compound Lissajous bob gives a floating, weightless quality.
+    // 5 droplets orbit in a slow, staggered ellipse — each at its own depth.
+    // ════════════════════════════════════════════════════════════════════════
+    if(e < T1){
+      const p      = norm(e, T0, T1);
+      // Soft cubic appear — no pop, just a breath
+      const appear = eo3(norm(e, 0, 380));
+
+      // Arrive from a gentle angle, settle toward front
+      const yaw = lerp(0.30, 0.055, eo5(p)) * Math.PI;
+      const sx  = Math.cos(yaw);
+
+      // Compound bob: fades in smoothly with appear
+      const { y } = bob(e, 12 * appear);
+      // Tiny lateral sway for life
+      const sway = Math.sin(e * 0.00105 + 0.6) * 3.5 * appear;
+
+      ctx.translate(sway, y);
+      drawHalo(e, appear);
+      drawDroplets(e, appear * 0.60, 5, 108, 0.00048, 0.70);
+      drawPhone(sx, appear);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // PHASE 1  (900 → 1300ms)
+    // A rapid, decisive Y-axis spin — not chaotic but purposeful.
+    // Uses a custom ease: snap-accelerate then snap-decelerate (quart curves).
+    // The aura is a clean radial bloom, not scattered arcs.
+    // Phone dissolves right at the edge-on moment (~0°) — it feels natural
+    //   because you can't see the face. Laptop rises from the same edge.
+    // Droplets are flung wide then magnetically snap back by phase end.
+    // ════════════════════════════════════════════════════════════════════════
+    else if(e < T2){
+      const p  = norm(e, T1, T2);
+
+      // Custom snap ease: accelerates in first 35%, decelerates in last 65%
+      const snapP = p < 0.35
+        ? eio(p / 0.35) * 0.35
+        : 0.35 + eo5((p - 0.35) / 0.65) * 0.65;
+
+      // 2.75 full turns — enough drama, not nauseating
+      const spinAng = snapP * Math.PI * 2 * 2.75;
+      const sx      = Math.cos(spinAng);
+      const absSX   = Math.abs(sx);
+
+      // Aura: gaussian-bell curve peaking at spin midpoint
+      const auraI = Math.sin(p * Math.PI);
+      drawSpinAura(auraI * 0.92);
+
+      // Droplets: radius swell at peak spin, then contract elegantly
+      const dR = lerp(108, 152, Math.sin(Math.min(p, 1) * Math.PI));
+      const dS = lerp(0.00048, 0.0042, Math.sin(Math.min(p, 1) * Math.PI));
+      drawDroplets(e, lerp(0.60, 0.78, Math.sin(p * Math.PI)), 7, dR, dS, 0.72);
+
+      // The critical morph: swap precisely at the edge-on crossing
+      // Edge-on when |sx| < 0.12 and we're in the spin's second quarter
+      const crossP    = 0.38; // progress at which edge-on occurs
+      const phoneFade  = 1 - eo5(norm(p, crossP - 0.08, crossP + 0.06));
+      const laptopFade =     eo5(norm(p, crossP + 0.02, crossP + 0.18));
+
+      // Subtle motion blur only at peak velocity
+      const blur = auraI * 4.5;
+      if(blur > 0.5) ctx.filter = `blur(${blur.toFixed(1)}px)`;
+      if(phoneFade  > 0.01) drawPhone( absSX, phoneFade);
+      if(laptopFade > 0.01) drawLaptop(absSX, laptopFade);
+      ctx.filter = 'none';
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // PHASE 2  (1300 → 1700ms)
+    // Laptop decelerates to face-on with a spring overshoot — it tilts
+    // just past frontal then eases back, like a gyroscope finding rest.
+    // Bob resumes at a calmer amplitude. Droplets exhale outward and vanish.
+    // ════════════════════════════════════════════════════════════════════════
+    else if(e < T3){
+      const p   = norm(e, T2, T3);
+
+      // Spring settle: tiny overshoot past 0 then back
+      const spring = Math.exp(-p * 8) * Math.cos(p * 18) * 0.06;
+      const yaw    = (0.14 + spring) * (1 - eo5(p)) * Math.PI;
+      const sx     = Math.cos(yaw);
+
+      // Bob re-enters gently
+      const bobAmp = lerp(0, 9, eo3(p));
+      const { y }  = bob(e, bobAmp);
+      const sway   = Math.sin(e * 0.00105 + 0.6) * lerp(0, 3, eo3(p));
+      ctx.translate(sway, y);
+
+      // Droplets exhale: drift outward, fade, and disappear
+      const dAlpha  = lerp(0.68, 0.0, eo5(p));
+      const dRadius = lerp(130, 185, eo3(p));
+      drawDroplets(e, dAlpha, 5, dRadius, 0.00038, 0.66);
+
+      drawHalo(e, lerp(0.7, 0.9, p));
+      drawLaptop(sx, 1.0);
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // PHASE 3  (1700 → 2400ms)
+    // Laptop is drawn inward — first a subtle pull, then rapid implosion.
+    // Vortex grows from nothing, arms tighten, singularity blazes briefly.
+    // Remaining droplets re-materialise from the edges, spiral in, vanish.
+    // The scale collapses on a quintic ease: gentle start, violent end.
+    // ════════════════════════════════════════════════════════════════════════
+    else if(e < T4){
+      const p   = norm(e, T3, T4);
+      // Quintic: slow pull for first 40%, then rapid collapse
+      const pQ  = p < 0.4
+        ? ei3(p / 0.4) * 0.3
+        : 0.3 + eo5((p - 0.4) / 0.6) * 0.7;
+
+      // Laptop: scale and fade — starts almost imperceptibly, ends suddenly
+      const lScale = 1 - pQ * 0.97;
+      const lAlpha = 1 - eo3(norm(p, 0.05, 0.78));
+
+      // Slight pull toward singularity (y offset)
+      const pull = pQ * pQ * 18;
+      ctx.save();
+      ctx.translate(0, pull);
+      ctx.scale(lScale, lScale);
+      drawLaptop(1, lAlpha);
+      ctx.restore();
+
+      // Droplets re-emerge at the edges and spiral inward
+      const dAppear = eo3(norm(p, 0.0, 0.28));
+      const dFade   = 1 - eo3(norm(p, 0.55, 1.0));
+      const dAlpha  = dAppear * dFade * 0.55;
+      const dRadius = lerp(155, 6, eo5(p));
+      if(dAlpha > 0.02) drawDroplets(e, dAlpha, 6, dRadius, 0.0028, 0.60);
+
+      // Vortex: begins softly, blazes at implosion, vanishes
+      const vIn    = eo3(norm(p, 0.08, 0.60));
+      const vOut   = 1 - eo5(norm(p, 0.72, 1.00));
+      const vAlpha = vIn * vOut;
+      if(vAlpha > 0.01) drawVortex(e, pQ, vAlpha);
+
+      // Final singularity flash just before phase ends
+      const flash = eo5(norm(p, 0.88, 1.00));
+      if(flash > 0.01){
+        const g = ctx.createRadialGradient(0,0,0,0,0,50*flash);
+        g.addColorStop(0, GOLD_F(flash * 0.85));
+        g.addColorStop(0.5, GOLD_F(flash * 0.2));
+        g.addColorStop(1, 'transparent');
+        ctx.beginPath(); ctx.arc(0,0,50*flash,0,Math.PI*2);
+        ctx.fillStyle = g; ctx.fill();
+      }
+    }
+
+    // ════════════════════════════════════════════════════════════════════════
+    // PHASE 4  (2400 → 2700ms)  — vortex exhales, preloader departs
+    // ════════════════════════════════════════════════════════════════════════
+    else {
+      const p = norm(e, T4, T5);
+      drawVortex(e, 1.0, 1 - eo5(p));
+
+      if(p >= 1 && !window._preloaderDone){
+        window._preloaderDone = true;
+        cancelAnimationFrame(rafId);
+        const pre = document.getElementById('pre');
+        pre.classList.add('done');
+        setTimeout(()=>{ pre.style.display = 'none'; }, 1100);
+        return;
+      }
+    }
+
+    ctx.restore();
+    rafId = requestAnimationFrame(render);
+  }
+
+  // Brief pause — lets fonts paint and avoids a single blank frame
+  setTimeout(()=>{ rafId = requestAnimationFrame(render); }, 160);
+})();
 
 // CURSOR
 const cd=document.querySelector('.c-d'),cr=document.querySelector('.c-r');
