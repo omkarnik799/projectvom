@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>FAQ — VOM Digital Agency Pune</title>
+<meta name="description" content="Plain answers to every question about VOM's websites, local SEO, pricing, and process. Pune's digital agency — answered honestly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══ SHARED DESIGN SYSTEM ══════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040a;--navy:#060a16;--gold:#c9a84c;--gold-lt:#e8c97a;--green:#2fe89a;
+  --g1:rgba(255,255,255,.028);--g2:rgba(255,255,255,.055);--gb:rgba(255,255,255,.06);--gb2:rgba(255,255,255,.11);
+  --neu-out:6px 6px 16px rgba(0,0,0,.55),-3px -3px 10px rgba(255,255,255,.03);
+  --text:#edeaf8;--muted:#6e7191;--dim:#2a2d3e;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);--ease-back:cubic-bezier(0.34,1.56,0.64,1);
+}
+@property --ray-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.65;overflow-x:hidden;cursor:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px;opacity:.018;pointer-events:none;z-index:9997}
+
+/* CURSOR */
+#c-dot,#c-ring,#c-trail{position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);will-change:transform}
+#c-dot{width:5px;height:5px;background:var(--gold-lt);z-index:10002;transition:width .1s,height .1s}
+#c-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.35);z-index:10001;transition:width .45s var(--ease),height .45s var(--ease),border-color .3s,background .3s}
+#c-trail{width:80px;height:80px;border:1px solid rgba(201,168,76,.08);z-index:10000;transition:width .9s var(--ease),height .9s var(--ease),opacity .5s}
+#c-label{position:fixed;pointer-events:none;font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--void);background:var(--gold-lt);padding:.25rem .6rem;border-radius:20px;z-index:10003;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:opacity .3s,transform .3s var(--ease);white-space:nowrap}
+body.hov #c-ring{width:54px;height:54px;border-color:var(--gold);background:rgba(201,168,76,.05)}
+body.hov #c-trail{width:96px;height:96px;opacity:.4}
+body.hov #c-dot{width:8px;height:8px}
+body.hov-text #c-ring{width:68px;height:68px;border-color:rgba(201,168,76,.2)}
+body.c-action #c-label{opacity:1;transform:translate(-50%,-50%) scale(1)}
+body.c-action #c-dot,body.c-action #c-ring{opacity:0}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:1.6rem 5rem;display:flex;align-items:center;justify-content:space-between;transition:padding .5s var(--ease),background .5s,border .5s,transform .45s var(--ease);border-bottom:1px solid transparent}
+#nav.solid{padding:1rem 5rem;background:rgba(4,4,10,.94);backdrop-filter:blur(28px) saturate(1.5);-webkit-backdrop-filter:blur(28px) saturate(1.5);border-bottom-color:var(--gb);box-shadow:0 1px 0 rgba(201,168,76,.06)}
+#nav.hide{transform:translateY(-110%)}
+.n-logo{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:.1em;color:var(--gold-lt);text-decoration:none;position:relative}
+.n-logo sup{font-size:.42em;vertical-align:super;opacity:.55}
+.n-logo::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.n-logo:hover::after{transform:scaleX(1)}
+.n-links{display:flex;gap:2.4rem;list-style:none}
+.n-links a{font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s}
+.n-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.n-links a:hover,.n-links a.active{color:var(--gold-lt)}
+.n-links a:hover::after,.n-links a.active::after{transform:scaleX(1)}
+.n-cta{font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.7rem;background:var(--gold);color:var(--void);text-decoration:none;border-radius:5px;transition:all .4s var(--ease);position:relative;overflow:hidden}
+.n-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s var(--ease)}
+.n-cta:hover::before{transform:translateX(100%)}
+.n-cta:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 0 0 8px rgba(201,168,76,.08)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.65rem;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;border-radius:5px;padding:.95rem 2.2rem;transition:all .4s var(--ease);border:1px solid transparent;position:relative;overflow:hidden;cursor:pointer}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s var(--ease)}
+.btn:hover::before{transform:translateX(100%)}
+.btn-gold{background:var(--gold);color:var(--void);box-shadow:0 0 32px rgba(201,168,76,.24),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 10px 40px rgba(201,168,76,.42)}
+.btn-outline{background:transparent;color:var(--gold-lt);border-color:rgba(201,168,76,.32)}
+.btn-outline:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.65);transform:translateY(-1px)}
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+
+/* REVEAL */
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*1ms)}
+[data-r].vis{opacity:1;transform:translateY(0)}
+[data-r="l"]{transform:translateX(-35px)}
+[data-r="l"].vis{transform:translateX(0)}
+[data-r="r"]{transform:translateX(35px)}
+[data-r="r"].vis{transform:translateX(0)}
+[data-r="s"]{transform:scale(.92) translateY(20px)}
+[data-r="s"].vis{transform:scale(1) translateY(0)}
+
+/* HEADERS */
+.ey{display:flex;align-items:center;gap:.9rem;font-size:.58rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.65;margin-bottom:1rem}
+.ey::before{content:'';width:22px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.7}
+.st{font-family:var(--serif);font-size:clamp(2.4rem,4.8vw,4.2rem);font-weight:400;line-height:1.08;margin-bottom:1.1rem}
+.st em{font-style:italic;color:var(--gold-lt)}
+
+/* ══ PAGE HERO ════════════════════════════════════════════ */
+#phero{position:relative;min-height:64vh;display:flex;align-items:flex-end;padding:0 5rem 6rem;overflow:hidden}
+.ph-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 65% 55% at 72% 35%,rgba(30,60,120,.5) 0%,transparent 65%),radial-gradient(ellipse 45% 40% at 12% 72%,rgba(201,168,76,.055) 0%,transparent 60%),var(--navy);animation:phBgShift 16s ease-in-out infinite alternate}
+@keyframes phBgShift{0%{filter:hue-rotate(0deg) brightness(1)}100%{filter:hue-rotate(4deg) brightness(1.04)}}
+.ph-grid{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 85% 70% at 50% 55%,black 30%,transparent 80%);transform:perspective(600px) rotateX(14deg) scale(1.12);transform-origin:50% 100%}
+.ph-ray{position:absolute;inset:0;z-index:1;pointer-events:none;background:conic-gradient(from var(--ray-angle) at 70% 40%,transparent 0deg,rgba(201,168,76,.022) 7deg,transparent 16deg);animation:rayRot 22s linear infinite}
+@keyframes rayRot{to{--ray-angle:360deg}}
+.ph-scan{position:absolute;left:0;right:0;height:1px;z-index:2;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent);animation:scanLine 7s linear infinite}
+@keyframes scanLine{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:.25}100%{top:100%;opacity:0}}
+.ph-orb1{position:absolute;width:420px;height:420px;right:-80px;top:-80px;border-radius:50%;background:radial-gradient(circle,rgba(36,80,190,.16) 0%,transparent 65%);pointer-events:none;will-change:transform}
+.ph-orb2{position:absolute;width:260px;height:260px;left:5%;bottom:5%;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.09) 0%,transparent 65%);pointer-events:none;will-change:transform}
+.ph-content{position:relative;z-index:10;max-width:1240px;width:100%;margin:0 auto}
+.ph-pre{font-size:.58rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;animation:fadeUp .9s var(--ease) forwards .3s;opacity:0}
+.ph-pre::before{content:'';width:22px;height:1px;background:var(--gold);opacity:.5}
+.ph-h1{font-family:var(--serif);font-size:clamp(3.2rem,7.5vw,7rem);font-weight:400;line-height:1.02;letter-spacing:-.02em;max-width:820px;animation:fadeUp 1s var(--ease) forwards .5s;opacity:0}
+.ph-h1 em{font-style:italic;color:var(--gold-lt)}
+.ph-sub{font-size:.9rem;color:var(--muted);max-width:460px;line-height:1.82;font-weight:300;margin-top:1.4rem;animation:fadeUp .9s var(--ease) forwards .7s;opacity:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.bc-nav{position:absolute;top:2rem;right:5rem;z-index:10;display:flex;align-items:center;gap:.55rem;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.bc-nav a{color:var(--muted);text-decoration:none;transition:color .3s}
+.bc-nav a:hover{color:var(--gold-lt)}
+.bc-nav span{color:var(--gold);opacity:.5}
+
+/* ══ FAQ SECTION ═════════════════════════════════════════ */
+#faq-main{padding:6rem 5rem 8rem;max-width:1240px;margin:0 auto}
+
+/* Sticky category pill bar */
+.cat-bar{position:sticky;top:72px;z-index:50;display:flex;gap:.55rem;flex-wrap:wrap;padding:1rem 0;background:linear-gradient(to bottom,var(--void) 80%,transparent);margin-bottom:3.5rem}
+.cat-pill{font-size:.58rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:.5rem 1.1rem;border-radius:24px;border:1px solid var(--gb);color:var(--muted);background:var(--g1);cursor:pointer;transition:all .35s var(--ease);white-space:nowrap;backdrop-filter:blur(8px)}
+.cat-pill:hover{color:var(--text);border-color:var(--gb2);background:rgba(255,255,255,.04)}
+.cat-pill.active{background:var(--gold);color:var(--void);border-color:var(--gold);box-shadow:0 0 20px rgba(201,168,76,.25)}
+
+/* 2-col layout */
+.faq-body{display:grid;grid-template-columns:220px 1fr;gap:5rem;align-items:start}
+.faq-sidebar{position:sticky;top:140px}
+.faq-sb-title{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:1.1rem}
+.faq-sb-links{display:flex;flex-direction:column}
+.fsl{font-size:.72rem;color:var(--muted);padding:.55rem 0;border-bottom:1px solid var(--gb);cursor:pointer;transition:color .3s;display:flex;align-items:center;gap:.6rem}
+.fsl::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--gold);opacity:0;flex-shrink:0;transition:opacity .3s}
+.fsl:first-child{border-top:1px solid var(--gb)}
+.fsl:hover,.fsl.active{color:var(--gold-lt)}
+.fsl.active::before{opacity:1}
+
+/* Section headers */
+.faq-section{margin-bottom:4rem}
+.faq-section:last-child{margin-bottom:0}
+.faq-section.hidden{display:none}
+.fq-sec-title{font-family:var(--serif);font-size:1.9rem;font-weight:400;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid var(--gb)}
+.fq-sec-title em{font-style:italic;color:var(--gold-lt)}
+
+/* Glassmorphic accordion items */
+.faq-item{
+  background:linear-gradient(145deg,rgba(255,255,255,.028),rgba(255,255,255,.012));
+  border:1px solid var(--gb);
+  border-radius:12px;
+  margin-bottom:.55rem;
+  overflow:hidden;
+  transition:border-color .3s,box-shadow .3s;
+  backdrop-filter:blur(10px);
+  position:relative;
+}
+.faq-item::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,168,76,.06) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;border-radius:12px}
+.faq-item:hover{border-color:rgba(255,255,255,.09);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+.faq-item:hover::before{opacity:1}
+.faq-item.open{border-color:rgba(201,168,76,.22);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.4rem 1.6rem;cursor:pointer;gap:2rem;font-size:.83rem;font-weight:500;color:var(--text);transition:color .3s;line-height:1.45;position:relative;z-index:1}
+.faq-q:hover{color:var(--gold-lt)}
+.faq-ic{width:24px;height:24px;border:1px solid var(--gb2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;color:var(--muted);transition:all .4s var(--ease)}
+.faq-item.open .faq-q{color:var(--gold-lt)}
+.faq-item.open .faq-ic{transform:rotate(45deg);border-color:var(--gold);color:var(--gold)}
+.faq-a{font-size:.79rem;color:var(--muted);line-height:1.85;max-height:0;overflow:hidden;transition:max-height .6s var(--ease),padding .4s;position:relative;z-index:1}
+.faq-item.open .faq-a{max-height:500px;padding:0 1.6rem 1.6rem}
+.faq-a a{color:var(--gold-lt);text-decoration:none;border-bottom:1px solid rgba(201,168,76,.3);transition:border-color .3s}
+.faq-a a:hover{border-bottom-color:var(--gold)}
+
+/* ══ TEAM BOX ════════════════════════════════════════════ */
+.team-box{background:linear-gradient(145deg,rgba(255,255,255,.042),rgba(255,255,255,.016));border:1px solid var(--gb);border-radius:18px;padding:2.8rem;margin-top:5rem;position:relative;overflow:hidden;backdrop-filter:blur(14px);box-shadow:var(--neu-out)}
+.team-box::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.team-box::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,168,76,.05) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;border-radius:18px}
+.team-box:hover::before{opacity:1}
+.tb-title{font-family:var(--serif);font-size:1.5rem;font-weight:400;margin-bottom:1.8rem}
+.tb-title em{font-style:italic;color:var(--gold-lt)}
+.tb-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem}
+.tm-mini{display:flex;align-items:center;gap:1rem}
+.tm-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.2rem;font-weight:600;flex-shrink:0;border:1px solid rgba(201,168,76,.2)}
+.av-v{background:rgba(201,168,76,.12);color:var(--gold-lt)}
+.av-o{background:rgba(36,81,183,.18);color:#7aaeff}
+.av-a{background:rgba(47,232,154,.1);color:var(--green)}
+.tm-n{font-size:.8rem;font-weight:600;color:var(--text);margin-bottom:.1rem}
+.tm-r{font-size:.62rem;color:var(--muted)}
+
+/* ══ CTA BAND ════════════════════════════════════════════ */
+#ctaband{padding:9rem 5rem;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--gb);background:linear-gradient(135deg,rgba(30,60,120,.3) 0%,var(--void) 45%,rgba(201,168,76,.04) 100%)}
+.cta-beam{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:320px;background:radial-gradient(ellipse,rgba(201,168,76,.1) 0%,transparent 65%);pointer-events:none;animation:beamPulse 4.5s ease-in-out infinite}
+@keyframes beamPulse{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}50%{opacity:.55;transform:translate(-50%,-50%) scale(1.2)}}
+.cta-ring{position:absolute;top:50%;left:50%;width:500px;height:500px;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(transparent,rgba(201,168,76,.06),transparent,rgba(36,80,190,.04),transparent);animation:ringRot 12s linear infinite;pointer-events:none}
+@keyframes ringRot{to{transform:translate(-50%,-50%) rotate(360deg)}}
+#ctaband .ey{justify-content:center;margin-bottom:1.4rem;position:relative;z-index:1}
+#ctaband h2{font-family:var(--serif);font-size:clamp(2.8rem,6vw,6.5rem);font-weight:400;line-height:1.06;max-width:740px;margin:0 auto 1.1rem;position:relative;z-index:1}
+#ctaband h2 em{font-style:italic;color:var(--gold-lt)}
+#ctaband p{font-size:.88rem;color:var(--muted);max-width:400px;margin:0 auto 3rem;line-height:1.8;position:relative;z-index:1}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.cta-note{margin-top:1.8rem;font-size:.6rem;font-weight:600;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;position:relative;z-index:1}
+
+/* ══ FOOTER ══════════════════════════════════════════════ */
+#footer{border-top:1px solid var(--gb);padding:4rem 5rem}
+.ft-in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3.5rem}
+.ft-brand .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.1em;color:var(--gold-lt)}
+.ft-brand .logo sup{font-size:.42em;vertical-align:super;opacity:.55}
+.ft-brand p{font-size:.73rem;color:var(--muted);margin-top:.6rem;line-height:1.7;max-width:210px}
+.ft-badge{display:inline-block;margin-top:1rem;font-size:.54rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .8rem;border:1px solid rgba(201,168,76,.22);color:var(--gold);border-radius:3px}
+.ft-col h5{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:1.1rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ft-col a{font-size:.73rem;color:var(--muted);text-decoration:none;transition:color .3s}
+.ft-col a:hover{color:var(--gold-lt)}
+.ft-bot{max-width:1240px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid var(--gb);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ft-bot p{font-size:.64rem;color:var(--dim);letter-spacing:.06em}
+.wa-fl{position:fixed;bottom:2.2rem;right:2.2rem;z-index:800;width:52px;height:52px;border-radius:50%;background:#25d366;box-shadow:0 4px 20px rgba(37,211,102,.45);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s var(--ease)}
+.wa-fl:hover{transform:scale(1.12) translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.6)}
+.wa-fl svg{width:26px;height:26px;fill:white}
+
+/* ══ RESPONSIVE ══════════════════════════════════════════ */
+@media(max-width:1024px){
+  #nav,#nav.solid,#phero,#faq-main,#ctaband,#footer{padding-left:2.5rem;padding-right:2.5rem}
+  .faq-body{grid-template-columns:1fr;gap:2rem}
+  .faq-sidebar{position:relative;top:auto;display:none}
+  .ft-in{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .bc-nav{right:2.5rem}
+  .tb-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:768px){
+  #nav,#nav.solid{padding:1.2rem 1.5rem}
+  .n-links{display:none}
+  #phero,#faq-main,#ctaband,#footer{padding-left:1.5rem;padding-right:1.5rem}
+  .ph-h1{font-size:clamp(2.8rem,9vw,4rem)}
+  .ft-in{grid-template-columns:1fr 1fr}
+  .bc-nav{display:none}
+  .cat-bar{top:58px}
+  .tb-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="c-dot"></div><div id="c-ring"></div><div id="c-trail"></div><div id="c-label"></div>
+
+<nav id="nav">
+  <a href="index.html" class="n-logo">VOM<sup>®</sup></a>
+  <ul class="n-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#how">Process</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="faq.html" class="active">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="n-cta" data-label="Let's Talk">Start a Project</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section id="phero">
+  <div class="ph-bg"></div><div class="ph-grid"></div><div class="ph-ray"></div><div class="ph-scan"></div>
+  <div class="ph-orb1" id="ph-o1"></div><div class="ph-orb2" id="ph-o2"></div>
+  <div class="bc-nav"><a href="index.html">Home</a><span>/</span>FAQ</div>
+  <div class="ph-content">
+    <div class="ph-pre">Questions</div>
+    <h1 class="ph-h1">Every question,<br><em>answered.</em></h1>
+    <p class="ph-sub">Plain answers, zero jargon. If something's still unclear, Viresh or Om will answer you personally on WhatsApp — usually within an hour.</p>
+  </div>
+</section>
+
+<!-- FAQ MAIN -->
+<section id="faq-main">
+  <!-- Category filter pills -->
+  <div class="cat-bar">
+    <div class="cat-pill active" data-cat="all">All</div>
+    <div class="cat-pill" data-cat="getting-started">Getting Started</div>
+    <div class="cat-pill" data-cat="pricing">Pricing</div>
+    <div class="cat-pill" data-cat="process">Process</div>
+    <div class="cat-pill" data-cat="seo">SEO</div>
+    <div class="cat-pill" data-cat="website">Website</div>
+    <div class="cat-pill" data-cat="support">Support</div>
+  </div>
+
+  <div class="faq-body">
+    <!-- Sticky sidebar -->
+    <div class="faq-sidebar">
+      <div class="faq-sb-title">Jump to section</div>
+      <div class="faq-sb-links">
+        <div class="fsl active" data-target="gs">Getting Started</div>
+        <div class="fsl" data-target="pr">Pricing</div>
+        <div class="fsl" data-target="pc">Process</div>
+        <div class="fsl" data-target="seo">SEO</div>
+        <div class="fsl" data-target="ws">Website</div>
+        <div class="fsl" data-target="sp">Support</div>
+      </div>
+    </div>
+
+    <!-- FAQ content -->
+    <div class="faq-sections">
+
+      <div class="faq-section" id="gs" data-section="getting-started" data-r>
+        <div class="fq-sec-title">Getting <em>Started</em></div>
+        <div class="faq-item"><div class="faq-q">What exactly does VOM do?<div class="faq-ic">+</div></div><div class="faq-a">VOM is a Pune-based digital agency run by two founders — Viresh and Om. We build custom websites, set up local SEO so your business appears on Google and Maps, configure AI-powered customer service, and manage your entire online presence on an ongoing basis.</div></div>
+        <div class="faq-item"><div class="faq-q">Who are you? How do I know you're credible?<div class="faq-ic">+</div></div><div class="faq-a">VOM is Viresh and Om — two real people based in Pune. We started in 2026 because too many great local businesses were invisible online. You can read about us on our <a href="about.html">About page</a>. We're happy to have a call or WhatsApp chat before you commit to anything — no pressure.</div></div>
+        <div class="faq-item"><div class="faq-q">Is VOM the right fit for my business?<div class="faq-ic">+</div></div><div class="faq-a">We're built for Pune's small and medium businesses — shops, restaurants, professionals (doctors, CAs, lawyers), startups, and e-commerce brands. If you want a credible online presence without wasting months on a complex agency process, we're the right fit.</div></div>
+        <div class="faq-item"><div class="faq-q">How do I get started?<div class="faq-ic">+</div></div><div class="faq-a">The easiest way is to send us a WhatsApp message at +91 80070 90910. We'll have a quick free call to understand your business and goals, then give you a clear plan and timeline. No forms, no funnels, no waiting for an account manager.</div></div>
+        <div class="faq-item"><div class="faq-q">Do you work with businesses outside Pune?<div class="faq-ic">+</div></div><div class="faq-a">Yes — while we specialise in Pune local SEO and know the market deeply, we can build websites and run digital presence management for businesses anywhere in India.</div></div>
+      </div>
+
+      <div class="faq-section" id="pr" data-section="pricing" data-r>
+        <div class="fq-sec-title"><em>Pricing</em> & Payments</div>
+        <div class="faq-item"><div class="faq-q">What is the ₹6,000 setup fee for?<div class="faq-ic">+</div></div><div class="faq-a">The ₹6,000 one-time setup fee covers: custom website design and development, domain registration, hosting setup, Google Business Profile creation, WhatsApp integration, and a local SEO foundation. Everything you need to go live — paid once, owned by you forever.</div></div>
+        <div class="faq-item"><div class="faq-q">Are there hidden fees after ₹6,000?<div class="faq-ic">+</div></div><div class="faq-a">No. ₹6,000 is the complete setup cost. Domain renewal and hosting fees (typically ₹1,000–2,500/year combined) are passed through at actual cost — no markup. We tell you exactly what everything costs upfront.</div></div>
+        <div class="faq-item"><div class="faq-q">What's included in the free first month?<div class="faq-ic">+</div></div><div class="faq-a">Every new client gets their first month of maintenance completely free — at whichever plan level they choose. If you choose Growth, your first month of active SEO campaigns, keyword tracking, content updates costs you nothing. No catch, no conditions.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I cancel my monthly plan?<div class="faq-ic">+</div></div><div class="faq-a">Yes, anytime. No notice period, no cancellation fee, no questions asked. You own your website, domain, and content — you keep everything even after cancelling.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I switch plans?<div class="faq-ic">+</div></div><div class="faq-a">Absolutely — upgrade or downgrade whenever you like. Changes apply from your next billing cycle.</div></div>
+        <div class="faq-item"><div class="faq-q">Are there any contracts to sign?<div class="faq-ic">+</div></div><div class="faq-a">No long-term contracts. The setup is a one-time payment. Monthly plans are month-to-month. We earn your business every month — that's how we think it should work.</div></div>
+      </div>
+
+      <div class="faq-section" id="pc" data-section="process" data-r>
+        <div class="fq-sec-title">The <em>Process</em></div>
+        <div class="faq-item"><div class="faq-q">How long does it take to launch my website?<div class="faq-ic">+</div></div><div class="faq-a">Typically 5–7 working days from your sign-off on the plan and brief. More complex sites (e-commerce, multiple services, lots of content) may take 10–14 days, but we'll tell you upfront.</div></div>
+        <div class="faq-item"><div class="faq-q">What do you need from me to get started?<div class="faq-ic">+</div></div><div class="faq-a">After our initial call, we'll ask for: your business name, logo, photos, your services and pricing, and any existing social media profiles. We guide you through all of this — you don't need to have it all ready on day one.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I give feedback before the site goes live?<div class="faq-ic">+</div></div><div class="faq-a">Absolutely — it's built into the process. We show you the website before it goes live, collect your detailed feedback, and refine it until you're satisfied. You get two full rounds of revisions included.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I own the website after it's built?<div class="faq-ic">+</div></div><div class="faq-a">Yes — entirely. You own the domain, the website code, all the content, and your Google Business listing. If you ever leave VOM, you take everything with you.</div></div>
+        <div class="faq-item"><div class="faq-q">What if I already have a website?<div class="faq-ic">+</div></div><div class="faq-a">We'll review what you have, discuss what's working and what isn't, and give you an honest recommendation. Sometimes a full rebuild makes sense; sometimes a significant redesign on top of what you have is better.</div></div>
+      </div>
+
+      <div class="faq-section" id="seo" data-section="seo" data-r>
+        <div class="fq-sec-title">Local <em>SEO</em></div>
+        <div class="faq-item"><div class="faq-q">How long does SEO take to show results?<div class="faq-ic">+</div></div><div class="faq-a">Local SEO results typically start appearing within 4–8 weeks for Google Maps and local pack rankings, with more significant keyword movement in 2–4 months. The timeline depends on your competition in Pune. We report progress every month.</div></div>
+        <div class="faq-item"><div class="faq-q">What does "local SEO" actually mean?<div class="faq-ic">+</div></div><div class="faq-a">Local SEO means getting your business to appear when people in Pune search for what you offer — both in Google's regular results and in Google Maps. It involves optimising your Google Business Profile, building local citations, targeting the right keywords, and making sure your website signals to Google that you serve Pune customers.</div></div>
+        <div class="faq-item"><div class="faq-q">Can you guarantee Google rankings?<div class="faq-ic">+</div></div><div class="faq-a">No — and anyone who guarantees specific rankings is not being honest with you. Google's algorithm isn't something any agency controls. What we can guarantee is that we follow proven best practices and report honestly on what's working.</div></div>
+        <div class="faq-item"><div class="faq-q">Do I need a Google Business Profile?<div class="faq-ic">+</div></div><div class="faq-a">Yes — if you serve local customers in Pune, your Google Business Profile is one of the most valuable digital assets you own. It's what drives your business to appear in Maps results and the local pack at the top of search results. We set it up and manage it as part of every plan.</div></div>
+        <div class="faq-item"><div class="faq-q">What's the difference between Local SEO and Google Ads?<div class="faq-ic">+</div></div><div class="faq-a">Local SEO is organic — you earn rankings over time, and they persist without ongoing ad spend. Google Ads is paid — you appear instantly at the top but stop appearing the moment you stop paying. We recommend SEO as the foundation, with Ads as an accelerant for specific campaigns.</div></div>
+      </div>
+
+      <div class="faq-section" id="ws" data-section="website" data-r>
+        <div class="fq-sec-title">The <em>Website</em></div>
+        <div class="faq-item"><div class="faq-q">Are the websites built on WordPress or a template?<div class="faq-ic">+</div></div><div class="faq-a">Neither. We build custom-coded websites — clean HTML, CSS, and JavaScript — without page builder plugins, bloated themes, or template dependencies. This makes your site faster, more secure, and fully in your control.</div></div>
+        <div class="faq-item"><div class="faq-q">Will my website work on mobile?<div class="faq-ic">+</div></div><div class="faq-a">100%. Every site we build is mobile-first — meaning we design for phones first, then scale up to desktop. This is critical for Google rankings, which now use mobile page performance as a primary ranking signal.</div></div>
+        <div class="faq-item"><div class="faq-q">How fast will my website load?<div class="faq-ic">+</div></div><div class="faq-a">We target a Google PageSpeed Insights score above 90 for all our sites. Fast loading is built into how we code — no unnecessary scripts, optimised images, proper caching. Fast sites rank better and convert better.</div></div>
+        <div class="faq-item"><div class="faq-q">Can I update my website myself?<div class="faq-ic">+</div></div><div class="faq-a">If you need a content management system so you can update the site yourself, we can build one in. For most small businesses, it's more efficient to have us handle updates (included in all monthly plans) — so you don't have to learn a CMS and risk breaking your SEO.</div></div>
+        <div class="faq-item"><div class="faq-q">Can you build an online store?<div class="faq-ic">+</div></div><div class="faq-a">Yes — e-commerce is part of our Scale plan. We build fast online stores with product pages, inventory management, and payment gateway integration (Razorpay, Paytm, Stripe).</div></div>
+      </div>
+
+      <div class="faq-section" id="sp" data-section="support" data-r>
+        <div class="fq-sec-title"><em>Support</em> & Ongoing</div>
+        <div class="faq-item"><div class="faq-q">How do I contact you when I need something?<div class="faq-ic">+</div></div><div class="faq-a">WhatsApp is the fastest way to reach us — +91 80070 90910. You can also email hello@vomagencies.in. You'll always be speaking directly to Viresh or Om. We typically respond within the hour during working hours (Mon–Sat, 9am–8pm).</div></div>
+        <div class="faq-item"><div class="faq-q">What happens if my website goes down?<div class="faq-ic">+</div></div><div class="faq-a">We monitor uptime on all sites we manage. If something goes down, we typically know before you do. We'll fix it and let you know — you don't have to chase us. Any downtime is usually resolved within 30 minutes.</div></div>
+        <div class="faq-item"><div class="faq-q">What do the monthly reports include?<div class="faq-ic">+</div></div><div class="faq-a">Every monthly report covers: website traffic and sources, Google Maps impressions and clicks, keyword ranking changes, Google Business profile activity, and a plain-language summary of what we did and what we're planning next.</div></div>
+        <div class="faq-item"><div class="faq-q">What is the AI Receptionist?<div class="faq-ic">+</div></div><div class="faq-a">The AI Receptionist is an intelligent chat widget on your website that answers common customer questions, captures lead details, and routes enquiries — automatically, 24/7. It's trained on your business information so it gives accurate answers. Available in Growth and Scale plans.</div></div>
+        <div class="faq-item"><div class="faq-q">My question isn't answered here. What do I do?<div class="faq-ic">+</div></div><div class="faq-a">Just message us on WhatsApp at +91 80070 90910, or email hello@vomagencies.in. Viresh or Om will answer you personally — usually within the hour. No question too small, no commitment required to just ask.</div></div>
+      </div>
+
+      <!-- Team box -->
+      <div class="team-box" data-r>
+        <div class="tb-title">Still have questions? Talk to <em>us directly.</em></div>
+        <div class="tb-grid">
+          <div class="tm-mini"><div class="tm-av av-v">V</div><div><div class="tm-n">Viresh</div><div class="tm-r">Strategy & SEO</div></div></div>
+          <div class="tm-mini"><div class="tm-av av-o">O</div><div><div class="tm-n">Om</div><div class="tm-r">Design & Dev</div></div></div>
+          <div class="tm-mini">
+            <a href="https://wa.me/8007090910?text=Hi!%20I%20have%20a%20question." class="btn btn-gold" style="padding:.8rem 1.6rem;font-size:.65rem">
+              WhatsApp Us <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="ctaband">
+  <div class="cta-beam"></div><div class="cta-ring"></div>
+  <div class="ey" data-r>Ready?</div>
+  <h2 data-r style="--d:80">Let's get your business<br><em>online today.</em></h2>
+  <p data-r style="--d:160">One message. One real conversation. Your business live online within 7 days.</p>
+  <div class="cta-btns" data-r style="--d:240">
+    <a href="https://wa.me/8007090910?text=Hi%20VOM!" class="btn btn-gold">Start a Project <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="pricing.html" class="btn btn-outline">View Pricing</a>
+  </div>
+  <p class="cta-note" data-r style="--d:320">₹6,000 setup · First month free · No contracts</p>
+</section>
+
+<footer id="footer">
+  <div class="ft-in">
+    <div class="ft-brand"><div class="logo">VOM<sup>®</sup></div><p>Pune's digital infrastructure agency. Websites, local SEO, and full online management.</p><div class="ft-badge">Est. 2026 · Pune, MH</div></div>
+    <div class="ft-col"><h5>Services</h5><ul><li><a href="index.html#services">Website Design</a></li><li><a href="index.html#services">Local SEO</a></li><li><a href="index.html#services">AI Receptionist</a></li><li><a href="index.html#services">Domain & Hosting</a></li></ul></div>
+    <div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About VOM</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="ft-col"><h5>Contact</h5><ul><li><a href="https://wa.me/8007090910">WhatsApp Us</a></li><li><a href="mailto:hello@vomagencies.in">hello@vomagencies.in</a></li><li><a href="#">Mon–Sat, 9am–8pm</a></li></ul></div>
+  </div>
+  <div class="ft-bot"><p>© 2026 VOM Digital Agency. All rights reserved.</p><p>Built by VOM · Pune, India</p></div>
+</footer>
+<a href="https://wa.me/8007090910?text=Hi%20VOM!" class="wa-fl" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script>
+'use strict';
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+/* CURSOR */
+!(function(){
+  const dot=document.querySelector('#c-dot'),ring=document.querySelector('#c-ring'),
+        trail=document.querySelector('#c-trail'),lbl=document.querySelector('#c-label');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,tx=mx,ty=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function loop(){rx=lerp(rx,mx,.12);ry=lerp(ry,my,.12);tx=lerp(tx,mx,.05);ty=lerp(ty,my,.05);ring.style.left=rx+'px';ring.style.top=ry+'px';trail.style.left=tx+'px';trail.style.top=ty+'px';lbl.style.left=rx+'px';lbl.style.top=(ry-30)+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.faq-item,.cat-pill,.team-box').forEach(el=>{
+    const lb=el.dataset.label||'';
+    el.addEventListener('mouseenter',()=>{document.body.classList.add('hov');if(lb){document.body.classList.add('c-action');lbl.textContent=lb}});
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov','c-action'));
+  });
+  document.querySelectorAll('.ph-h1,.st,.faq-q').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('hov-text'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov-text'));
+  });
+})();
+
+/* ORB PARALLAX */
+!(function(){
+  const o1=document.querySelector('#ph-o1'),o2=document.querySelector('#ph-o2');
+  let cx=0,cy=0,tx=0,ty=0;
+  document.addEventListener('mousemove',e=>{tx=(e.clientX-innerWidth/2)/innerWidth;ty=(e.clientY-innerHeight/2)/innerHeight});
+  (function loop(){cx=lerp(cx,tx,.055);cy=lerp(cy,ty,.055);if(o1)o1.style.transform=`translate(${cx*-35}px,${cy*-25}px)`;if(o2)o2.style.transform=`translate(${cx*50}px,${cy*40}px)`;requestAnimationFrame(loop)})();
+})();
+
+/* CARD GLOW */
+document.querySelectorAll('.faq-item,.team-box').forEach(c=>{
+  c.style.setProperty('--mx','50%');c.style.setProperty('--my','50%');
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')});
+});
+
+/* MAGNETIC BUTTONS */
+document.querySelectorAll('.btn,.n-cta').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.24}px,${(e.clientY-r.top-r.height/2)*.24}px)`});
+  b.addEventListener('mouseleave',()=>{b.style.transform=''});
+});
+
+/* MOTION NAV */
+!(function(){
+  const nav=document.querySelector('#nav');let lastY=0;
+  window.addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('solid',y>60);if(y>200){if(y>lastY+8)nav.classList.add('hide');else if(y<lastY-6)nav.classList.remove('hide')}lastY=y},{passive:true});
+})();
+
+/* REVEAL */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1,rootMargin:'0px 0px -48px 0px'});
+document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
+
+/* FAQ ACCORDION */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+
+/* CATEGORY FILTER */
+document.querySelectorAll('.cat-pill').forEach(pill=>{
+  pill.addEventListener('click',()=>{
+    document.querySelectorAll('.cat-pill').forEach(p=>p.classList.remove('active'));
+    pill.classList.add('active');
+    const cat=pill.dataset.cat;
+    document.querySelectorAll('.faq-section').forEach(sec=>{
+      sec.classList.toggle('hidden',cat!=='all'&&sec.dataset.section!==cat);
+    });
+  });
+});
+
+/* SIDEBAR ACTIVE */
+const secs=document.querySelectorAll('.faq-section');
+const sideLinks=document.querySelectorAll('.fsl');
+new IntersectionObserver(es=>{
+  es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;sideLinks.forEach(l=>{l.classList.toggle('active',l.dataset.target===id)})}});
+},{threshold:.4}).observe.bind(
+  new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;sideLinks.forEach(l=>{l.classList.toggle('active',l.dataset.target===id)})}})},{threshold:.4})
+);
+const secObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){const id=e.target.id;sideLinks.forEach(l=>{l.classList.toggle('active',l.dataset.target===id)})}})},{threshold:.4});
+secs.forEach(s=>secObs.observe(s));
+
+sideLinks.forEach(l=>{l.addEventListener('click',()=>{const t=document.getElementById(l.dataset.target);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+/* SMOOTH ANCHOR */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+
+/* SMOOTH SCROLL PHYSICS */
+!(function(){
+  if('ontouchstart' in window||innerWidth<=768)return;
+  let cur=0,tar=0;
+  window.addEventListener('wheel',e=>{e.preventDefault();tar=Math.max(0,Math.min(tar+e.deltaY*1.1,document.body.scrollHeight-innerHeight))},{passive:false});
+  (function loop(){cur=lerp(cur,tar,.088);window.scrollTo(0,cur);requestAnimationFrame(loop)})();
+})();
+</script>
+</body>
+</html>

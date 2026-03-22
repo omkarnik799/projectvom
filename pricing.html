@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Pricing — VOM Digital Agency Pune</title>
+<meta name="description" content="₹6,000 flat to launch your website. Monthly maintenance from ₹1,000. First month free. VOM — Pune's digital agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ══ SHARED DESIGN SYSTEM ══════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --void:#04040a;--navy:#060a16;--gold:#c9a84c;--gold-lt:#e8c97a;--green:#2fe89a;
+  --g1:rgba(255,255,255,.028);--g2:rgba(255,255,255,.055);--gb:rgba(255,255,255,.06);--gb2:rgba(255,255,255,.11);
+  --neu-out:6px 6px 16px rgba(0,0,0,.55),-3px -3px 10px rgba(255,255,255,.03);
+  --text:#edeaf8;--muted:#6e7191;--dim:#2a2d3e;
+  --serif:'Cormorant Garamond',Georgia,serif;--sans:'Montserrat',sans-serif;
+  --ease:cubic-bezier(0.16,1,0.3,1);--ease-back:cubic-bezier(0.34,1.56,0.64,1);
+}
+@property --ray-angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+@property --grd-rot{syntax:'<angle>';initial-value:135deg;inherits:false}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--void);color:var(--text);font-family:var(--sans);font-weight:300;line-height:1.65;overflow-x:hidden;cursor:none}
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px;opacity:.018;pointer-events:none;z-index:9997}
+
+/* CURSOR */
+#c-dot,#c-ring,#c-trail{position:fixed;top:0;left:0;pointer-events:none;border-radius:50%;transform:translate(-50%,-50%);will-change:transform}
+#c-dot{width:5px;height:5px;background:var(--gold-lt);z-index:10002;transition:width .1s,height .1s}
+#c-ring{width:36px;height:36px;border:1px solid rgba(201,168,76,.35);z-index:10001;transition:width .45s var(--ease),height .45s var(--ease),border-color .3s,background .3s}
+#c-trail{width:80px;height:80px;border:1px solid rgba(201,168,76,.08);z-index:10000;transition:width .9s var(--ease),height .9s var(--ease),opacity .5s}
+#c-label{position:fixed;pointer-events:none;font-family:var(--sans);font-size:.5rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--void);background:var(--gold-lt);padding:.25rem .6rem;border-radius:20px;z-index:10003;opacity:0;transform:translate(-50%,-50%) scale(.8);transition:opacity .3s,transform .3s var(--ease);white-space:nowrap}
+body.hov #c-ring{width:54px;height:54px;border-color:var(--gold);background:rgba(201,168,76,.05)}
+body.hov #c-trail{width:96px;height:96px;opacity:.4}
+body.hov #c-dot{width:8px;height:8px}
+body.hov-text #c-ring{width:68px;height:68px;border-color:rgba(201,168,76,.2)}
+body.c-action #c-label{opacity:1;transform:translate(-50%,-50%) scale(1)}
+body.c-action #c-dot,body.c-action #c-ring{opacity:0}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:900;padding:1.6rem 5rem;display:flex;align-items:center;justify-content:space-between;transition:padding .5s var(--ease),background .5s,border .5s,transform .45s var(--ease);border-bottom:1px solid transparent}
+#nav.solid{padding:1rem 5rem;background:rgba(4,4,10,.94);backdrop-filter:blur(28px) saturate(1.5);-webkit-backdrop-filter:blur(28px) saturate(1.5);border-bottom-color:var(--gb);box-shadow:0 1px 0 rgba(201,168,76,.06)}
+#nav.hide{transform:translateY(-110%)}
+.n-logo{font-family:var(--serif);font-size:1.55rem;font-weight:600;letter-spacing:.1em;color:var(--gold-lt);text-decoration:none;position:relative}
+.n-logo sup{font-size:.42em;vertical-align:super;opacity:.55}
+.n-logo::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.n-logo:hover::after{transform:scaleX(1)}
+.n-links{display:flex;gap:2.4rem;list-style:none}
+.n-links a{font-size:.65rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);text-decoration:none;position:relative;transition:color .3s}
+.n-links a::after{content:'';position:absolute;bottom:-3px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.n-links a:hover,.n-links a.active{color:var(--gold-lt)}
+.n-links a:hover::after,.n-links a.active::after{transform:scaleX(1)}
+.n-cta{font-family:var(--sans);font-size:.65rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:.7rem 1.7rem;background:var(--gold);color:var(--void);text-decoration:none;border-radius:5px;transition:all .4s var(--ease);position:relative;overflow:hidden}
+.n-cta::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.15) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s var(--ease)}
+.n-cta:hover::before{transform:translateX(100%)}
+.n-cta:hover{background:var(--gold-lt);transform:translateY(-1px);box-shadow:0 0 0 8px rgba(201,168,76,.08)}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.65rem;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;text-decoration:none;border-radius:5px;padding:.95rem 2.2rem;transition:all .4s var(--ease);border:1px solid transparent;position:relative;overflow:hidden;cursor:pointer}
+.btn::before{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.14) 50%,transparent 70%);transform:translateX(-100%);transition:transform .5s var(--ease)}
+.btn:hover::before{transform:translateX(100%)}
+.btn-gold{background:var(--gold);color:var(--void);box-shadow:0 0 32px rgba(201,168,76,.24),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);box-shadow:0 10px 40px rgba(201,168,76,.42)}
+.btn-outline{background:transparent;color:var(--gold-lt);border-color:rgba(201,168,76,.32)}
+.btn-outline:hover{background:rgba(201,168,76,.07);border-color:rgba(201,168,76,.65);transform:translateY(-1px)}
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+
+/* REVEAL */
+[data-r]{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:calc(var(--d,0)*1ms)}
+[data-r].vis{opacity:1;transform:translateY(0)}
+[data-r="l"]{transform:translateX(-35px)}
+[data-r="l"].vis{transform:translateX(0)}
+[data-r="r"]{transform:translateX(35px)}
+[data-r="r"].vis{transform:translateX(0)}
+[data-r="s"]{transform:scale(.92) translateY(20px)}
+[data-r="s"].vis{transform:scale(1) translateY(0)}
+
+/* HEADERS */
+.ey{display:flex;align-items:center;gap:.9rem;font-size:.58rem;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);opacity:.65;margin-bottom:1rem}
+.ey::before{content:'';width:22px;height:1px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.7}
+.st{font-family:var(--serif);font-size:clamp(2.4rem,4.8vw,4.2rem);font-weight:400;line-height:1.08;margin-bottom:1.1rem}
+.st em{font-style:italic;color:var(--gold-lt)}
+.sb{font-size:.87rem;color:var(--muted);line-height:1.85;max-width:480px}
+
+/* ══ PAGE HERO ════════════════════════════════════════════ */
+#phero{position:relative;min-height:64vh;display:flex;align-items:flex-end;padding:0 5rem 6rem;overflow:hidden}
+.ph-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 65% 55% at 72% 35%,rgba(30,60,120,.5) 0%,transparent 65%),radial-gradient(ellipse 45% 40% at 12% 72%,rgba(201,168,76,.055) 0%,transparent 60%),var(--navy);animation:phBgShift 16s ease-in-out infinite alternate}
+@keyframes phBgShift{0%{filter:hue-rotate(0deg) brightness(1)}100%{filter:hue-rotate(4deg) brightness(1.04)}}
+.ph-grid{position:absolute;inset:0;z-index:1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 85% 70% at 50% 55%,black 30%,transparent 80%);transform:perspective(600px) rotateX(14deg) scale(1.12);transform-origin:50% 100%}
+.ph-ray{position:absolute;inset:0;z-index:1;pointer-events:none;background:conic-gradient(from var(--ray-angle) at 70% 40%,transparent 0deg,rgba(201,168,76,.022) 7deg,transparent 16deg);animation:rayRot 22s linear infinite}
+@keyframes rayRot{to{--ray-angle:360deg}}
+.ph-scan{position:absolute;left:0;right:0;height:1px;z-index:2;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent);animation:scanLine 7s linear infinite}
+@keyframes scanLine{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:.25}100%{top:100%;opacity:0}}
+.ph-orb1{position:absolute;width:420px;height:420px;right:-80px;top:-80px;border-radius:50%;background:radial-gradient(circle,rgba(36,80,190,.16) 0%,transparent 65%);pointer-events:none;will-change:transform}
+.ph-orb2{position:absolute;width:260px;height:260px;left:5%;bottom:5%;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.09) 0%,transparent 65%);pointer-events:none;will-change:transform}
+.ph-content{position:relative;z-index:10;max-width:1240px;width:100%;margin:0 auto}
+.ph-pre{font-size:.58rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:.9rem;margin-bottom:1.4rem;animation:fadeUp .9s var(--ease) forwards .3s;opacity:0}
+.ph-pre::before{content:'';width:22px;height:1px;background:var(--gold);opacity:.5}
+.ph-h1{font-family:var(--serif);font-size:clamp(3.2rem,7.5vw,7rem);font-weight:400;line-height:1.02;letter-spacing:-.02em;max-width:820px;animation:fadeUp 1s var(--ease) forwards .5s;opacity:0}
+.ph-h1 em{font-style:italic;color:var(--gold-lt)}
+.ph-sub{font-size:.9rem;color:var(--muted);max-width:460px;line-height:1.82;font-weight:300;margin-top:1.4rem;animation:fadeUp .9s var(--ease) forwards .7s;opacity:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.bc-nav{position:absolute;top:2rem;right:5rem;z-index:10;display:flex;align-items:center;gap:.55rem;font-size:.58rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.bc-nav a{color:var(--muted);text-decoration:none;transition:color .3s}
+.bc-nav a:hover{color:var(--gold-lt)}
+.bc-nav span{color:var(--gold);opacity:.5}
+/* Float card */
+.ph-float{position:absolute;right:6%;bottom:14%;width:200px;background:rgba(255,255,255,.038);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:1.2rem 1.4rem;backdrop-filter:blur(18px) saturate(1.3);-webkit-backdrop-filter:blur(18px) saturate(1.3);box-shadow:0 20px 50px rgba(0,0,0,.45),0 0 0 1px rgba(201,168,76,.07);z-index:10;animation:floatCard 6s ease-in-out infinite,hfIn .9s var(--ease) forwards .9s;opacity:0;transform-style:preserve-3d}
+@keyframes floatCard{0%,100%{transform:translateY(0) rotateX(3deg) rotateY(-2deg)}50%{transform:translateY(-10px) rotateX(1deg) rotateY(1deg)}}
+@keyframes hfIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.phf-lbl{font-size:.5rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:.5rem}
+.phf-val{font-family:var(--serif);font-size:1.9rem;font-weight:300;color:var(--gold-lt);line-height:1}
+.phf-sub{font-size:.6rem;color:var(--muted);margin-top:.2rem}
+/* Animated progress bar in float */
+.phf-bar{height:2px;background:rgba(255,255,255,.06);margin-top:.8rem;border-radius:1px;overflow:hidden}
+.phf-prog{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold-lt));animation:phfProg 2s var(--ease) forwards 1.2s;width:0;border-radius:1px}
+@keyframes phfProg{to{width:100%}}
+
+/* ══ SETUP BENTO ══════════════════════════════════════════ */
+#setup{padding:8rem 5rem;max-width:1240px;margin:0 auto}
+.setup-bento{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem;margin-top:3.5rem}
+.sb-card{background:linear-gradient(145deg,rgba(255,255,255,.042),rgba(255,255,255,.016));border:1px solid var(--gb);border-radius:18px;padding:2.6rem;position:relative;overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s,border-color .4s;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:var(--neu-out)}
+.sb-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,168,76,.07) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;border-radius:18px}
+.sb-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(0);transition:transform .6s var(--ease)}
+.sb-card:hover{transform:translateY(-5px);box-shadow:0 32px 80px rgba(0,0,0,.55);border-color:rgba(255,255,255,.1)}
+.sb-card:hover::before{opacity:1}
+.sb-card:hover::after{transform:scaleX(1)}
+.sb-price-card{grid-column:1/6}
+.sb-info-card{grid-column:6/13}
+/* Price card */
+.sb-lbl{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:.6rem}
+.sb-price{font-family:var(--serif);font-size:6rem;font-weight:300;color:var(--gold-lt);line-height:1;margin-bottom:.3rem}
+.sb-period{font-size:.78rem;color:var(--muted);margin-bottom:2.4rem}
+.sb-includes{display:flex;flex-direction:column;gap:.7rem}
+.sb-item{display:flex;align-items:flex-start;gap:.7rem;font-size:.78rem;color:var(--muted);transition:color .3s}
+.sb-item:hover{color:var(--text)}
+.sb-item::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0}
+/* Info card */
+.sb-info-card h3{font-family:var(--serif);font-size:1.6rem;font-weight:400;margin-bottom:.8rem;line-height:1.3}
+.sb-info-card h3 em{font-style:italic;color:var(--gold-lt)}
+.sb-info-card p{font-size:.84rem;color:var(--muted);line-height:1.85;margin-bottom:1rem}
+.sb-info-card p strong{color:var(--text);font-weight:500}
+/* Free month banner */
+.free-banner{display:flex;align-items:center;gap:1.2rem;background:linear-gradient(135deg,rgba(47,232,154,.08),rgba(47,232,154,.03));border:1px solid rgba(47,232,154,.22);border-radius:12px;padding:1.4rem 1.8rem;margin-top:1.8rem;position:relative;overflow:hidden}
+.free-banner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(47,232,154,.06) 0%,transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none}
+.free-banner:hover::before{opacity:1}
+.fb-icon{font-size:1.4rem;flex-shrink:0}
+.fb-title{font-size:.8rem;font-weight:600;color:var(--green);letter-spacing:.04em;margin-bottom:.18rem}
+.fb-sub{font-size:.72rem;color:var(--muted)}
+
+/* ══ PLAN CARDS ═══════════════════════════════════════════ */
+#plans{padding:8rem 5rem;max-width:1240px;margin:0 auto}
+.pl-g{display:grid;grid-template-columns:1fr 1.08fr 1fr;gap:1.1rem;margin-top:3.5rem}
+.plan{background:linear-gradient(145deg,rgba(255,255,255,.042),rgba(255,255,255,.016));border:1px solid var(--gb);border-radius:18px;padding:2.6rem 2.2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:transform .5s var(--ease),box-shadow .5s,border-color .4s;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:var(--neu-out)}
+.plan::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(201,168,76,.07) 0%,transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;border-radius:18px}
+/* Animated rotating border */
+.plan-border{position:absolute;inset:0;border-radius:18px;background:linear-gradient(var(--grd-rot),transparent 40%,rgba(201,168,76,.18) 100%);-webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;padding:1px;pointer-events:none;animation:bordRot 6s linear infinite}
+@keyframes bordRot{to{--grd-rot:495deg}}
+.plan:hover{transform:translateY(-8px);box-shadow:0 36px 90px rgba(0,0,0,.6);border-color:rgba(255,255,255,.12)}
+.plan:hover::before{opacity:1}
+.plan.feat{border-color:rgba(201,168,76,.32);background:linear-gradient(145deg,rgba(201,168,76,.07),rgba(201,168,76,.02) 60%)}
+.plan.feat .plan-border{background:linear-gradient(var(--grd-rot),transparent 20%,rgba(201,168,76,.45) 100%)}
+.pl-badge{position:absolute;top:1.1rem;right:1.1rem;font-size:.5rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;background:var(--gold);color:var(--void);padding:.28rem .75rem;border-radius:3px}
+.pl-tier{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:.55rem}
+.pl-name{font-family:var(--serif);font-size:1.9rem;font-weight:600;margin-bottom:.3rem}
+.pl-sub{font-size:.74rem;color:var(--muted);margin-bottom:1.8rem;line-height:1.5}
+.pl-price{font-family:var(--serif);font-size:3.4rem;font-weight:300;color:var(--text);line-height:1}
+.pl-price small{font-size:1.1rem;color:var(--muted)}
+.pl-per{font-size:.68rem;color:var(--muted);margin-bottom:1.8rem;margin-top:.2rem}
+.pl-div{height:1px;background:var(--gb);margin-bottom:1.6rem}
+.pl-feats{list-style:none;flex:1;display:flex;flex-direction:column;gap:.72rem;margin-bottom:2rem}
+.pl-feats li{font-size:.77rem;color:var(--muted);display:flex;align-items:flex-start;gap:.65rem;line-height:1.5}
+.pl-feats li::before{content:'✓';color:var(--gold);font-weight:700;flex-shrink:0;margin-top:.05rem}
+.pl-feats li.off{color:var(--dim)}
+.pl-feats li.off::before{content:'–';color:var(--dim);font-weight:300}
+
+/* ══ COMPARISON TABLE ═════════════════════════════════════ */
+#compare{padding:8rem 5rem;max-width:1240px;margin:0 auto}
+.cmp-wrap{margin-top:3.5rem;overflow-x:auto}
+.cmp-tbl{width:100%;border-collapse:collapse}
+.cmp-tbl th{font-size:.58rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.65;padding:1.2rem 1.4rem;border-bottom:1px solid var(--gb);text-align:center}
+.cmp-tbl th:first-child{text-align:left;color:var(--muted)}
+.cmp-tbl th.hl{background:linear-gradient(180deg,rgba(201,168,76,.07),transparent);border-left:1px solid rgba(201,168,76,.2);border-right:1px solid rgba(201,168,76,.2);color:var(--gold-lt);opacity:1}
+.cmp-tbl .cat td{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.45;padding:.8rem 1.4rem .3rem;background:transparent;border:none;text-align:left}
+.cmp-tbl td{font-size:.77rem;color:var(--muted);padding:.9rem 1.4rem;border-bottom:1px solid rgba(255,255,255,.03);text-align:center;transition:background .2s}
+.cmp-tbl td:first-child{text-align:left;color:var(--text)}
+.cmp-tbl td.hl{background:linear-gradient(180deg,rgba(201,168,76,.028),transparent);border-left:1px solid rgba(201,168,76,.1);border-right:1px solid rgba(201,168,76,.1)}
+.cmp-tbl tr:hover td{background:rgba(255,255,255,.015)}
+.cmp-tbl tr:hover td.hl{background:rgba(201,168,76,.04)}
+.ck{color:var(--gold);font-size:1rem}
+.cx{color:var(--dim);font-size:1rem}
+
+/* ══ FAQ MINI ═══════════════════════════════════════════ */
+#faqmini{padding:8rem 5rem;max-width:1240px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column;margin-top:3rem}
+.faq-item{border-bottom:1px solid rgba(255,255,255,.04)}
+.faq-item:first-child{border-top:1px solid rgba(255,255,255,.04)}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0;cursor:pointer;gap:2rem;font-size:.83rem;font-weight:500;color:var(--text);transition:color .3s;line-height:1.45}
+.faq-q:hover{color:var(--gold-lt)}
+.faq-ic{width:24px;height:24px;border:1px solid var(--gb2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.7rem;color:var(--muted);transition:all .4s var(--ease)}
+.faq-item.open .faq-q{color:var(--gold-lt)}
+.faq-item.open .faq-ic{transform:rotate(45deg);border-color:var(--gold);color:var(--gold)}
+.faq-a{font-size:.79rem;color:var(--muted);line-height:1.85;max-height:0;overflow:hidden;transition:max-height .6s var(--ease),padding .4s}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:1.6rem}
+
+/* ══ CTA BAND ═════════════════════════════════════════════ */
+#ctaband{padding:9rem 5rem;text-align:center;position:relative;overflow:hidden;border-top:1px solid var(--gb);background:linear-gradient(135deg,rgba(30,60,120,.3) 0%,var(--void) 45%,rgba(201,168,76,.04) 100%)}
+.cta-beam{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:320px;background:radial-gradient(ellipse,rgba(201,168,76,.1) 0%,transparent 65%);pointer-events:none;animation:beamPulse 4.5s ease-in-out infinite}
+@keyframes beamPulse{0%,100%{opacity:1;transform:translate(-50%,-50%) scale(1)}50%{opacity:.55;transform:translate(-50%,-50%) scale(1.2)}}
+.cta-ring{position:absolute;top:50%;left:50%;width:500px;height:500px;transform:translate(-50%,-50%);border-radius:50%;background:conic-gradient(transparent,rgba(201,168,76,.06),transparent,rgba(36,80,190,.04),transparent);animation:ringRot 12s linear infinite;pointer-events:none}
+@keyframes ringRot{to{transform:translate(-50%,-50%) rotate(360deg)}}
+#ctaband .ey{justify-content:center;margin-bottom:1.4rem;position:relative;z-index:1}
+#ctaband h2{font-family:var(--serif);font-size:clamp(2.8rem,6vw,6.5rem);font-weight:400;line-height:1.06;max-width:740px;margin:0 auto 1.1rem;position:relative;z-index:1}
+#ctaband h2 em{font-style:italic;color:var(--gold-lt)}
+#ctaband p{font-size:.88rem;color:var(--muted);max-width:400px;margin:0 auto 3rem;line-height:1.8;position:relative;z-index:1}
+.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.cta-note{margin-top:1.8rem;font-size:.6rem;font-weight:600;letter-spacing:.2em;color:var(--dim);text-transform:uppercase;position:relative;z-index:1}
+
+/* ══ FOOTER ══════════════════════════════════════════════ */
+#footer{border-top:1px solid var(--gb);padding:4rem 5rem}
+.ft-in{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:3.5rem}
+.ft-brand .logo{font-family:var(--serif);font-size:1.4rem;font-weight:600;letter-spacing:.1em;color:var(--gold-lt)}
+.ft-brand .logo sup{font-size:.42em;vertical-align:super;opacity:.55}
+.ft-brand p{font-size:.73rem;color:var(--muted);margin-top:.6rem;line-height:1.7;max-width:210px}
+.ft-badge{display:inline-block;margin-top:1rem;font-size:.54rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:.3rem .8rem;border:1px solid rgba(201,168,76,.22);color:var(--gold);border-radius:3px}
+.ft-col h5{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.6;margin-bottom:1.1rem}
+.ft-col ul{list-style:none;display:flex;flex-direction:column;gap:.6rem}
+.ft-col a{font-size:.73rem;color:var(--muted);text-decoration:none;transition:color .3s}
+.ft-col a:hover{color:var(--gold-lt)}
+.ft-bot{max-width:1240px;margin:2.5rem auto 0;padding-top:1.5rem;border-top:1px solid var(--gb);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+.ft-bot p{font-size:.64rem;color:var(--dim);letter-spacing:.06em}
+.wa-fl{position:fixed;bottom:2.2rem;right:2.2rem;z-index:800;width:52px;height:52px;border-radius:50%;background:#25d366;box-shadow:0 4px 20px rgba(37,211,102,.45);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:all .4s var(--ease)}
+.wa-fl:hover{transform:scale(1.12) translateY(-3px);box-shadow:0 10px 30px rgba(37,211,102,.6)}
+.wa-fl svg{width:26px;height:26px;fill:white}
+
+/* ══ RESPONSIVE ══════════════════════════════════════════ */
+@media(max-width:1024px){
+  #nav,#nav.solid,#phero,#setup,#plans,#compare,#faqmini,#ctaband,#footer{padding-left:2.5rem;padding-right:2.5rem}
+  .pl-g{grid-template-columns:1fr}
+  .sb-price-card{grid-column:1/13}
+  .sb-info-card{grid-column:1/13}
+  .ft-in{grid-template-columns:1fr 1fr;gap:2.5rem}
+  .bc-nav{right:2.5rem}
+  .ph-float{display:none}
+}
+@media(max-width:768px){
+  #nav,#nav.solid{padding:1.2rem 1.5rem}
+  .n-links{display:none}
+  #phero,#setup,#plans,#compare,#faqmini,#ctaband,#footer{padding-left:1.5rem;padding-right:1.5rem}
+  .ph-h1{font-size:clamp(2.8rem,9vw,4rem)}
+  .ft-in{grid-template-columns:1fr 1fr}
+  .bc-nav{display:none}
+}
+</style>
+</head>
+<body>
+
+<div id="c-dot"></div><div id="c-ring"></div><div id="c-trail"></div><div id="c-label"></div>
+
+<nav id="nav">
+  <a href="index.html" class="n-logo">VOM<sup>®</sup></a>
+  <ul class="n-links">
+    <li><a href="index.html#services">Services</a></li>
+    <li><a href="index.html#how">Process</a></li>
+    <li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
+  </ul>
+  <a href="index.html#contact" class="n-cta" data-label="Let's Talk">Start a Project</a>
+</nav>
+
+<!-- PAGE HERO -->
+<section id="phero">
+  <div class="ph-bg"></div><div class="ph-grid"></div><div class="ph-ray"></div><div class="ph-scan"></div>
+  <div class="ph-orb1" id="ph-o1"></div><div class="ph-orb2" id="ph-o2"></div>
+  <div class="bc-nav"><a href="index.html">Home</a><span>/</span>Pricing</div>
+  <div class="ph-float">
+    <div class="phf-lbl">Setup From</div>
+    <div class="phf-val">₹6k</div>
+    <div class="phf-sub">One-time, flat rate</div>
+    <div class="phf-bar"><div class="phf-prog"></div></div>
+  </div>
+  <div class="ph-content">
+    <div class="ph-pre">05 — Pricing</div>
+    <h1 class="ph-h1">Honest pricing.<br><em>No surprises.</em></h1>
+    <p class="ph-sub">One flat fee to launch your business online. Then pay only for the ongoing support you need — starting at ₹1,000/month.</p>
+  </div>
+</section>
+
+<!-- SETUP BENTO -->
+<section id="setup">
+  <div class="ey" data-r>01 — Setup</div>
+  <div class="setup-bento">
+    <div class="sb-card sb-price-card" data-r="s">
+      <div class="sb-lbl">One-Time Setup Fee</div>
+      <div class="sb-price">₹6,000</div>
+      <div class="sb-period">Flat rate · No hidden extras · Pay once</div>
+      <div class="sb-includes">
+        <div class="sb-item">Custom website (designed & developed)</div>
+        <div class="sb-item">Mobile-first, fast-loading, SEO-ready</div>
+        <div class="sb-item">Domain name registration & setup</div>
+        <div class="sb-item">Hosting configuration & DNS</div>
+        <div class="sb-item">Google Business Profile setup</div>
+        <div class="sb-item">Basic local SEO foundation</div>
+        <div class="sb-item">WhatsApp click-to-chat integration</div>
+        <div class="sb-item">You own everything — no lock-in</div>
+      </div>
+    </div>
+    <div class="sb-card sb-info-card" data-r style="--d:120">
+      <h3>Everything you need to go <em>live.</em></h3>
+      <p>₹6,000 covers your full digital launch — website, domain, hosting, Google Business, and a local SEO foundation. Not a template. A complete, production-grade website built specifically for your business.</p>
+      <p><strong>Why ₹6,000?</strong> We use smart automation to handle the repeatable parts of the build, so Viresh and Om can focus on strategy, design, and copy. Agency quality without agency pricing.</p>
+      <p>Typically delivered within <strong>7 working days</strong> of your sign-off.</p>
+      <div class="free-banner">
+        <div class="fb-icon">🎁</div>
+        <div><div class="fb-title">First month of maintenance is free</div><div class="fb-sub">Every new client gets a full month of management at no cost — no conditions, no catch.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN CARDS -->
+<section id="plans">
+  <div class="ey" data-r>02 — Monthly Plans</div>
+  <h2 class="st" data-r style="--d:80">Pick the plan that<br>fits where you <em>are now.</em></h2>
+  <p class="sb" data-r style="--d:160">Cancel anytime. No contracts. First month always free.</p>
+  <div class="pl-g">
+    <div class="plan" data-r="s" style="--d:80">
+      <div class="plan-border"></div>
+      <div class="pl-tier">Starter</div><div class="pl-name">Local</div>
+      <div class="pl-sub">Shops, cafés & restaurants</div>
+      <div class="pl-price">₹1,000<small>/mo</small></div>
+      <div class="pl-per">after ₹6,000 setup · first month free</div>
+      <div class="pl-div"></div>
+      <ul class="pl-feats">
+        <li>Hosting & uptime monitoring</li><li>2 content updates per month</li>
+        <li>Google Business management</li><li>Monthly performance report</li>
+        <li>WhatsApp support</li>
+        <li class="off">Active SEO campaigns</li><li class="off">Keyword tracking</li>
+        <li class="off">Google Ads guidance</li><li class="off">Social media management</li>
+      </ul>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20Local%20plan." class="btn btn-outline" style="justify-content:center">Get Started</a>
+    </div>
+    <div class="plan feat" data-r="s" style="--d:160">
+      <div class="plan-border"></div>
+      <div class="pl-badge">Most Popular</div>
+      <div class="pl-tier">Growth</div><div class="pl-name">Growth</div>
+      <div class="pl-sub">Startups, SMBs & professionals</div>
+      <div class="pl-price">₹2,500<small>/mo</small></div>
+      <div class="pl-per">after ₹6,000 setup · first month free</div>
+      <div class="pl-div"></div>
+      <ul class="pl-feats">
+        <li>Everything in Local</li><li>Active local SEO campaigns</li>
+        <li>6 content updates per month</li><li>Keyword ranking tracker</li>
+        <li>Google Ads setup guidance</li><li>Priority WhatsApp support</li>
+        <li>Competitor benchmarking</li>
+        <li class="off">Social media management</li><li class="off">Monthly strategy call</li>
+      </ul>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20Growth%20plan." class="btn btn-gold" style="justify-content:center">Get Started</a>
+    </div>
+    <div class="plan" data-r="s" style="--d:240">
+      <div class="plan-border"></div>
+      <div class="pl-tier">Enterprise</div><div class="pl-name">Scale</div>
+      <div class="pl-sub">E-commerce & established brands</div>
+      <div class="pl-price">₹5,000<small>/mo</small></div>
+      <div class="pl-per">after ₹6,000 setup · first month free</div>
+      <div class="pl-div"></div>
+      <ul class="pl-feats">
+        <li>Everything in Growth</li><li>Social media management</li>
+        <li>Unlimited content updates</li><li>Monthly strategy call</li>
+        <li>Full Google Ads management</li><li>Competitor monitoring</li>
+        <li>E-commerce product updates</li><li>Quarterly website refresh</li>
+        <li>Priority feature development</li>
+      </ul>
+      <a href="https://wa.me/8007090910?text=Hi%20VOM!%20Scale%20plan." class="btn btn-outline" style="justify-content:center">Get Started</a>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section id="compare">
+  <div class="ey" data-r>03 — Compare Plans</div>
+  <h2 class="st" data-r style="--d:80">Everything side<br>by <em>side.</em></h2>
+  <div class="cmp-wrap" data-r style="--d:160">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th style="width:38%">Feature</th>
+          <th>Local<br><span style="font-family:var(--serif);font-size:1rem;font-weight:300;letter-spacing:0;text-transform:none">₹1,000/mo</span></th>
+          <th class="hl">Growth<br><span style="font-family:var(--serif);font-size:1rem;font-weight:300;letter-spacing:0;text-transform:none">₹2,500/mo</span></th>
+          <th>Scale<br><span style="font-family:var(--serif);font-size:1rem;font-weight:300;letter-spacing:0;text-transform:none">₹5,000/mo</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="cat"><td colspan="4">Maintenance & Hosting</td></tr>
+        <tr><td>Hosting & uptime</td><td><span class="ck">✓</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Content updates / month</td><td>2</td><td class="hl">6</td><td>Unlimited</td></tr>
+        <tr><td>WhatsApp support</td><td><span class="ck">✓</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Monthly performance report</td><td><span class="ck">✓</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr class="cat"><td colspan="4">SEO & Visibility</td></tr>
+        <tr><td>Google Business management</td><td><span class="ck">✓</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Active local SEO campaigns</td><td><span class="cx">–</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Keyword ranking tracker</td><td><span class="cx">–</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Competitor benchmarking</td><td><span class="cx">–</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Google Ads guidance</td><td><span class="cx">–</span></td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Full Google Ads management</td><td><span class="cx">–</span></td><td class="hl"><span class="cx">–</span></td><td><span class="ck">✓</span></td></tr>
+        <tr class="cat"><td colspan="4">Growth Services</td></tr>
+        <tr><td>Social media management</td><td><span class="cx">–</span></td><td class="hl"><span class="cx">–</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Monthly strategy call</td><td><span class="cx">–</span></td><td class="hl"><span class="cx">–</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>E-commerce product updates</td><td><span class="cx">–</span></td><td class="hl"><span class="cx">–</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Quarterly website refresh</td><td><span class="cx">–</span></td><td class="hl"><span class="cx">–</span></td><td><span class="ck">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FAQ MINI -->
+<section id="faqmini">
+  <div class="ey" data-r>04 — Common Questions</div>
+  <h2 class="st" data-r style="--d:80">Pricing questions,<br><em>answered.</em></h2>
+  <div class="faq-list" data-r style="--d:160">
+    <div class="faq-item"><div class="faq-q">Is the ₹6,000 really a one-time cost?<div class="faq-ic">+</div></div><div class="faq-a">Yes — absolutely. ₹6,000 covers the complete setup of your website, domain, hosting configuration, Google Business setup, and local SEO foundation. You pay it once. There are no hidden setup fees, no onboarding charges, and nothing else due at launch.</div></div>
+    <div class="faq-item"><div class="faq-q">What does the free first month include?<div class="faq-ic">+</div></div><div class="faq-a">The free first month gives you whichever plan you choose — at zero cost. So if you choose Growth, you get a full month of active SEO campaigns, content updates, keyword tracking, and all Growth features before paying anything for maintenance.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I cancel my monthly plan?<div class="faq-ic">+</div></div><div class="faq-a">Yes, anytime. No notice period, no cancellation fee. Your website, domain, and content belong to you — so you keep everything even if you cancel.</div></div>
+    <div class="faq-item"><div class="faq-q">Can I switch plans later?<div class="faq-ic">+</div></div><div class="faq-a">Absolutely. You can upgrade or downgrade at any time. Changes take effect from your next billing cycle. Most clients start on Local or Growth and upgrade when they see results and want to scale faster.</div></div>
+    <div class="faq-item"><div class="faq-q">Does ₹6,000 include domain and hosting costs?<div class="faq-ic">+</div></div><div class="faq-a">The setup fee covers domain registration and hosting configuration. Ongoing domain renewal (typically ₹800–1,500/year) and hosting costs are passed through at cost with no markup — or included in your plan depending on which one you choose.</div></div>
+    <div class="faq-item"><div class="faq-q">Are there any contracts to sign?<div class="faq-ic">+</div></div><div class="faq-a">No long-term contracts. The setup is a one-time payment. Monthly plans are month-to-month. We earn your business every month — that's how we think it should work.</div></div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section id="ctaband">
+  <div class="cta-beam"></div><div class="cta-ring"></div>
+  <div class="ey" data-r>Ready to get started?</div>
+  <h2 data-r style="--d:80">₹6,000 to go<br><em>live online.</em></h2>
+  <p data-r style="--d:160">Message Viresh or Om on WhatsApp — they'll answer every question personally, at zero cost or commitment.</p>
+  <div class="cta-btns" data-r style="--d:240">
+    <a href="https://wa.me/8007090910?text=Hi%20VOM!%20I%20want%20to%20get%20started." class="btn btn-gold">Start a Project <svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M1 7h12M8 2l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    <a href="faq.html" class="btn btn-outline">More Questions</a>
+  </div>
+  <p class="cta-note" data-r style="--d:320">First month free · No contracts · Cancel anytime</p>
+</section>
+
+<footer id="footer">
+  <div class="ft-in">
+    <div class="ft-brand"><div class="logo">VOM<sup>®</sup></div><p>Pune's digital infrastructure agency. Websites, local SEO, and full online management.</p><div class="ft-badge">Est. 2026 · Pune, MH</div></div>
+    <div class="ft-col"><h5>Services</h5><ul><li><a href="index.html#services">Website Design</a></li><li><a href="index.html#services">Local SEO</a></li><li><a href="index.html#services">AI Receptionist</a></li><li><a href="index.html#services">Domain & Hosting</a></li></ul></div>
+    <div class="ft-col"><h5>Company</h5><ul><li><a href="about.html">About VOM</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="faq.html">FAQ</a></li><li><a href="index.html#contact">Contact</a></li></ul></div>
+    <div class="ft-col"><h5>Contact</h5><ul><li><a href="https://wa.me/8007090910">WhatsApp Us</a></li><li><a href="mailto:hello@vomagencies.in">hello@vomagencies.in</a></li><li><a href="#">Mon–Sat, 9am–8pm</a></li></ul></div>
+  </div>
+  <div class="ft-bot"><p>© 2026 VOM Digital Agency. All rights reserved.</p><p>Built by VOM · Pune, India</p></div>
+</footer>
+<a href="https://wa.me/8007090910?text=Hi%20VOM!" class="wa-fl" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+
+<script>
+'use strict';
+const lerp=(a,b,t)=>a+(b-a)*t;
+
+/* CURSOR */
+!(function(){
+  const dot=document.querySelector('#c-dot'),ring=document.querySelector('#c-ring'),
+        trail=document.querySelector('#c-trail'),lbl=document.querySelector('#c-label');
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,tx=mx,ty=my;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+  (function loop(){rx=lerp(rx,mx,.12);ry=lerp(ry,my,.12);tx=lerp(tx,mx,.05);ty=lerp(ty,my,.05);ring.style.left=rx+'px';ring.style.top=ry+'px';trail.style.left=tx+'px';trail.style.top=ty+'px';lbl.style.left=rx+'px';lbl.style.top=(ry-30)+'px';requestAnimationFrame(loop)})();
+  document.querySelectorAll('a,button,.plan,.sb-card,.faq-q,.free-banner').forEach(el=>{
+    const lb=el.dataset.label||'';
+    el.addEventListener('mouseenter',()=>{document.body.classList.add('hov');if(lb){document.body.classList.add('c-action');lbl.textContent=lb}});
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov','c-action'));
+  });
+  document.querySelectorAll('.ph-h1,.st').forEach(el=>{
+    el.addEventListener('mouseenter',()=>document.body.classList.add('hov-text'));
+    el.addEventListener('mouseleave',()=>document.body.classList.remove('hov-text'));
+  });
+})();
+
+/* ORB PARALLAX */
+!(function(){
+  const o1=document.querySelector('#ph-o1'),o2=document.querySelector('#ph-o2');
+  let cx=0,cy=0,tx=0,ty=0;
+  document.addEventListener('mousemove',e=>{tx=(e.clientX-innerWidth/2)/innerWidth;ty=(e.clientY-innerHeight/2)/innerHeight});
+  (function loop(){cx=lerp(cx,tx,.055);cy=lerp(cy,ty,.055);if(o1)o1.style.transform=`translate(${cx*-35}px,${cy*-25}px)`;if(o2)o2.style.transform=`translate(${cx*50}px,${cy*40}px)`;requestAnimationFrame(loop)})();
+})();
+
+/* CARD GLOW */
+document.querySelectorAll('.plan,.sb-card,.free-banner').forEach(c=>{
+  c.style.setProperty('--mx','50%');c.style.setProperty('--my','50%');
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();c.style.setProperty('--mx',((e.clientX-r.left)/r.width*100).toFixed(1)+'%');c.style.setProperty('--my',((e.clientY-r.top)/r.height*100).toFixed(1)+'%')});
+});
+
+/* MAGNETIC BUTTONS */
+document.querySelectorAll('.btn,.n-cta').forEach(b=>{
+  b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-r.left-r.width/2)*.24}px,${(e.clientY-r.top-r.height/2)*.24}px)`});
+  b.addEventListener('mouseleave',()=>{b.style.transform=''});
+});
+
+/* MOTION NAV */
+!(function(){
+  const nav=document.querySelector('#nav');let lastY=0;
+  window.addEventListener('scroll',()=>{const y=scrollY;nav.classList.toggle('solid',y>60);if(y>200){if(y>lastY+8)nav.classList.add('hide');else if(y<lastY-6)nav.classList.remove('hide')}lastY=y},{passive:true});
+})();
+
+/* REVEAL */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1,rootMargin:'0px 0px -48px 0px'});
+document.querySelectorAll('[data-r]').forEach(el=>obs.observe(el));
+
+/* FAQ ACCORDION */
+document.querySelectorAll('.faq-item').forEach(item=>{
+  item.querySelector('.faq-q').addEventListener('click',()=>{
+    const was=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!was)item.classList.add('open');
+  });
+});
+
+/* SMOOTH ANCHOR */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+
+/* SMOOTH SCROLL PHYSICS */
+!(function(){
+  if('ontouchstart' in window||innerWidth<=768)return;
+  let cur=0,tar=0;
+  window.addEventListener('wheel',e=>{e.preventDefault();tar=Math.max(0,Math.min(tar+e.deltaY*1.1,document.body.scrollHeight-innerHeight))},{passive:false});
+  (function loop(){cur=lerp(cur,tar,.088);window.scrollTo(0,cur);requestAnimationFrame(loop)})();
+})();
+</script>
+</body>
+</html>
